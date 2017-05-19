@@ -3,6 +3,7 @@
 \usepackage[ngerman]{babel} 
 \usepackage[utf8]{inputenc}
 \usepackage[T1]{fontenc} 
+\usepackage{color}
 \usepackage{geometry} \geometry{a4paper, top=25mm, left=20mm, right=40mm, bottom=2mm} 
 \renewcommand{\baselinestretch}{1.5}
 
@@ -16,7 +17,7 @@
 \end{minipage} \vspace{1cm}
 
 \begin{minipage}{\textwidth} \centering \Large
-     \textbf{Erste Projektarbeit \\ Titel}
+     \textbf{Erste Projektarbeit \\ Erarbeitung eines Lösungsentwurfes für eine IT-Lösung zur Kapazitäts- und Schulungsplanung der Kabinencrew}
 \end{minipage} \vspace{1cm}
 
 \begin{minipage}{\textwidth} \centering \Large
@@ -73,6 +74,14 @@ Telefon(Firma): &+49 (0)69 696 74135 \\
 \subsection {Motivation}
 
 \subsection {Problemstellung und -abgrenzung}
+Bei der Lufthansa wurde die Zuteilung von Kabinencrews zu den Flügen noch per Hand über diverse Excel Tabellen aus unterschiedlichen Quellen geplant. Anhand verschiedenster Kriterien stellt man Kleingruppen zusammen und teilt diese ein. Das kostet jedoch sehr viel Zeit und birgt ein hohes Fehlerrisiko.
+Diese Methode wurde durch die {\color{red} Applikation PACMAS abgelöst, die  es ermöglicht, Auswertungen auf personenbezogene Daten zu machen. (1999er Notiz)}
+Nachdem COMPAS Cockpit entwickelt wurde, ein Programm, das diese Zuteilung automatisch für die Cockpit-Besatzung durchführt, soll dies jetzt auch für die Kabine, also die komplette Crew, ermöglicht werden. 
+
+\noindent Besonderer Fokus liegt dabei auf die Integration in die bestehende Systemlandschaft, also COMPAS Cockpit und die Entwicklung einer mandantenfähigen Lösung, um mehrere Airlines der Lufthansa Gruppe zu integrieren. Dabei sollen moderne Architekturansätze verwendet werden, um sich von dem bereits veralteten Modell des Cockpits loszulösen.
+Zur Weiterverarbeitung sollen die Ergebnisse in Excel exportiert werden können. Außerdem sollten die Berechnungsläufe getrennt von Cockpit erfolgen, um sich gegenseitig nicht zu beeinträchtigen.
+
+\noindent Diese Arbeit beschäftigt sich mit dem Entwurf eines Prototypes für dieses Programm und vergleicht, wie das bereits existierendes Projekt NetLine/Crew, dazu benutzt werden oder unterstützen kann. 
 
 \subsection {Ziel der Arbeit}
 
