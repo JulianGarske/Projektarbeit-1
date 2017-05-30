@@ -4,8 +4,11 @@
 \usepackage[utf8]{inputenc}
 \usepackage[T1]{fontenc} 
 \usepackage{color}
-\usepackage{geometry} \geometry{a4paper, top=25mm, left=20mm, right=40mm, bottom=2mm} 
+\usepackage{graphicx}
+ \usepackage{float}
+\usepackage{geometry} \geometry{a4paper, top=25mm, left=20mm, right=40mm, bottom=20mm} 
 \renewcommand{\baselinestretch}{1.5}
+
 \begin {document}
 
 
@@ -31,8 +34,8 @@
 Verfasser: & Julian Garske \\
 Matrikelnummer: & 6728241 \vspace{0.5cm} \\ 
 Kurs: & WWI SCA16 \\
- Studiengangsleiter:& Dr. Frank Koslowski \vspace{0.5cm} \\
-Wissenschaftl. Betreuer/in: &Name \\ 
+Studiengangsleiter:& Dr. Frank Koslowski \vspace{0.5cm} \\
+Wissenschaftliche/r Betreuer/in: &Name \\ 
 Telefon:& \\ 
 Mailadresse:& \vspace{0.5cm}\\
 Ausbildungsbetrieb: &Lufthansa Systems GmbH \& Co. KG \\ 
@@ -51,12 +54,13 @@ Telefon(Firma): &+49 (0)69 696 74135 \\
 \tableofcontents
 \newpage
 
-\pagenumbering{Roman}
 
+\pagenumbering{gobble}
 \section*{Kurzfassung (Abstract)}
 \addcontentsline{toc}{section}{Kurzfassung (Abstract)}
 \newpage
 
+\pagenumbering{Roman}
 \section*{Abkürzungsverzeichnis}
 \addcontentsline{toc}{section}{Abkürzungsverzeichnis}
 \begin{table}[h!]
@@ -79,6 +83,7 @@ SFO & Senior First Officer\
 
 \section*{Abbildungsverzeichnis}
 \addcontentsline{toc}{section}{Abbildungsverzeichnis}
+\listoffigures
 \newpage
 
 \section*{Anlagenverzeichnis}
@@ -89,58 +94,74 @@ SFO & Senior First Officer\
 \setcounter{page}{1}
 \section{Einleitung }
 \subsection {Motivation}
-Die Einteilung der Piloten und Flottenbesatzung zu den jeweiligen Flügen wird durch viele Regelungen beeinflusst. Dazu gehören z.B. freie Zeiten wie Urlaub, Elternzeit oder Krankheit oder auch normative Regelungen. Außerdem muss beachtet werden, wer welche Position besetzen darf und dafür genügend ausgebildet ist. Natürlich gibt es auch Schulungen, die geplant werden müssen und oft mehrere Wochen dauern, sodass diese Personen für den normalen Flugbetrieb ausfallen, aber danach anders eingesetzt werden können. Ziel der Planung ist es, ausreichend aber nicht zu viel Personal für jeden Flug und Schulung einsatzbereit zu haben.
-
-\noindent Seit 1999? gibt es für die Kapazitäts- und Schulungsplanung der Piloten für die Lufthansa das von uns entwickelte System COMPAS Cockpit. Für die etwa 5000 Piloten lässt sich damit eine Zeit für bis zu 15 Monate in Zukunft planen. Bis heute wird daran gearbeitet und es gibt regelmäßig Updates. Anstatt das Ganze per Hand zu berechnen wird dadurch Zeit gespart und Fehler minimiert.
-
-\noindent Nach dem Release wurde immer wieder der Wunsch offen, so etwas auch für die Kabinenbesatzung zu entwickeln. Dazu kam es aber nie, da es immer an irgendeiner Stelle scheiterte und nicht richtig in Angriff genommen wurde. Durch Personalmangel der Planer im Standort München ist das Thema aber im Moment wieder aktuell und soll nun bearbeitet werden.
+Die Einteilung der Piloten und Flottenbesatzung zu den jeweiligen Flügen wird durch viele Regelungen beeinflusst. Dazu gehören z.B. freie Zeiten wie Urlaub, Elternzeit oder Krankheit oder auch normative Regelungen. Außerdem muss beachtet werden, wer welche Position besetzen darf und dafür genügend ausgebildet ist. Natürlich gibt es auch Schulungen, die geplant werden müssen und oft mehrere Wochen dauern, sodass diese Personen für den normalen Flugbetrieb ausfallen, aber danach anders eingesetzt werden können. Ziel der Planung ist es, ausreichend aber nicht zu viel Personal für jeden Flug und Schulung einsatzbereit zu haben. \\
+Seit 1999? gibt es für die Kapazitäts- und Schulungsplanung der Piloten für die Lufthansa das von uns entwickelte System COMPAS Cockpit. Für die etwa 5000 Piloten lässt sich damit eine Zeit für bis zu 15 Monate in Zukunft planen. Bis heute wird daran gearbeitet und es gibt regelmäßig Updates. Anstatt das Ganze per Hand zu berechnen wird dadurch Zeit gespart und Fehler minimiert. \\
+Nach dem Release wurde immer wieder der Wunsch offen, so etwas auch für die Kabinenbesatzung zu entwickeln. Dazu kam es aber nie, da es immer an irgendeiner Stelle scheiterte und nicht richtig in Angriff genommen wurde. Durch Personalmangel der Planer im Standort München ist das Thema aber im Moment wieder aktuell und soll nun bearbeitet werden.
 
 \subsection {Problemstellung und -abgrenzung}
-Bis heute wird die Planung mithilfe von vielen verschiedenen Excel-Tabellen realisiert. Diese über 200 Tabellen enthalten Daten aus unterschiedlichen Quellen, die für die Kapazitätsplanung erforderlich sind. Aufgrund der Quantität und Verflechtungen der Tabellen untereinander sind Computerabstürze oder Fehler nichts Ungewöhnliches, was zu doppelter Arbeit und Frust der Planer führt.
-
-\noindent Nach dem Vorbild von COC soll eine automatisierte Kapazitäts- und Schulungsplanung jetzt auch für die Kabine, also die komplette Crew, ermöglicht werden. An erster Stelle steht dabei die Kapazitätsplanung, die in dieser Arbeit behandelt wird.
-
-\noindent Als Ausgangspunkt für das Projekt wird COC genutzt, da es in vielen Teilen Ähnlichkeiten besitzt. Unterschiede gibt es in der Anzahl der Personen und Daten, der Gruppenbildung und bei den Prämissen. Der Berechnungsalgorithmus sollte ähnlich wie in COC funktionieren. 
-
-\noindent Besonderer Fokus liegt auf der Integration in die bestehende Systemlandschaft, also von COMPAS Cockpit, und die Entwicklung einer mandantenfähigen Lösung, um mehrere Airlines der Lufthansa Gruppe zu integrieren. Dabei sollen moderne Architekturansätze verwendet werden, um sich von dem bereits veralteten Modell des Cockpits loszulösen.
+Bis heute wird die Planung mithilfe von vielen verschiedenen Excel-Tabellen realisiert. Diese über 200 Tabellen enthalten Daten aus unterschiedlichen Quellen, die für die Kapazitätsplanung erforderlich sind. Aufgrund der Quantität und Verflechtungen der Tabellen untereinander sind Computerabstürze oder Fehler nichts Ungewöhnliches, was zu doppelter Arbeit und Frust der Planer führt. \\
+Nach dem Vorbild von COC soll eine automatisierte Kapazitäts- und Schulungsplanung jetzt auch für die Kabine, also die komplette Crew, ermöglicht werden. An erster Stelle steht dabei die Kapazitätsplanung, die in dieser Arbeit behandelt wird. \\
+Als Ausgangspunkt für das Projekt wird COC genutzt, da es in vielen Teilen Ähnlichkeiten besitzt. Unterschiede gibt es in der Anzahl der Personen und Daten, der Gruppenbildung und bei den Prämissen. Der Berechnungsalgorithmus sollte ähnlich wie in COC funktionieren. \\
+Besonderer Fokus liegt auf der Integration in die bestehende Systemlandschaft, also von COMPAS Cockpit, und die Entwicklung einer mandantenfähigen Lösung, um mehrere Airlines der Lufthansa Gruppe zu integrieren. Dabei sollen moderne Architekturansätze verwendet werden, um sich von dem bereits veralteten Modell des Cockpits loszulösen.
 Zur Weiterverarbeitung sollen die Ergebnisse in Excel exportiert werden können. Außerdem sollten die Berechnungsläufe getrennt von Cockpit erfolgen, um sich gegenseitig nicht zu beeinträchtigen.
 
 \subsection {Ziel der Arbeit}
 Ziel der Arbeit ist es, einen Lösungsentwurf für die Entwicklung eines Prototyps zur Kapazitätsplanung des Kabinenpersonals zu entwerfen. Darüber hinaus wird evaluiert, inwiefern COC dazu als Vorlage genutzt werden kann und ob NL/C für die Entwicklung hilfreich ist.
 
 \subsection {Vorgehen}
-Zunächst geht es darum, die Anforderungen zu ermitteln. Es ist meine Aufgabe, herauszufinden, wie die Planung bis jetzt funktioniert und was genau das Programm erledigen soll. Dazu interviewe ich verschiedene Stakeholder, besonders die Planer. Sie wissen am besten, wie die Planung funktioniert und müssen das Programm später anwenden. Danach gilt zu ermitteln, inwiefern es Gemeinsamkeiten und Unterschiede zu COC gibt und was anders gemacht werden muss. Bestimmte Bereiche müssen modernisiert werden, aber vieles kann so auch übernommen werden. Auch NL/C wird dafür in Betracht gezogen.
-
-\noindent Das Ganze wird dann konkret umgesetzt und ein genauer Entwurf wird erstellt, der als Vorlage zur Entwicklung des Prototyps dient. Man soll daraus präzise erfassen können, welche Anforderungen wie erfüllt werden müssen und was alles für die Entwicklung getan werden muss.
+Zunächst geht es darum, die Anforderungen zu ermitteln. Es ist meine Aufgabe, herauszufinden, wie die Planung bis jetzt realisiert wird und was genau das Programm erledigen soll. Dazu interviewe ich verschiedene Stakeholder, besonders die Planer. Sie wissen am besten, wie die Planung funktioniert und müssen das Programm später anwenden. Danach gilt zu ermitteln, inwiefern es Gemeinsamkeiten und Unterschiede zu COC gibt und was anders gemacht werden muss. Bestimmte Bereiche müssen modernisiert werden, aber vieles kann so auch übernommen werden. Auch NL/C wird dafür in Betracht gezogen. \\
+Das Ganze wird dann konkret umgesetzt und ein genauer Entwurf wird erstellt, der als Vorlage zur Entwicklung des Prototyps dient. Man soll daraus präzise erfassen können, welche Anforderungen wie erfüllt werden müssen und was alles für die Entwicklung getan werden muss.
 \newpage
 
 \section{Problemanalyse}
 \subsection{Quantität}
-Anstatt der ca. 5000 Piloten deren Daten in COC verarbeitet werden müssen in COB die Daten von ca. 20000 Personen verarbeitet werden. Das wöchentliche Laden? dieser Daten dauert bereits in COC einige Stunden, für COB wäre es also mindestens das Vierfache, wobei es in solchen Fällen meist eher exponentiell statt linear steigt.
-
-\noindent Aufgrund dieser Tatsache wird zur Datenerhebung aus der CDB eine neue Architektur benötigt, um die fast 20 Jahre alte von COC zu ersetzen. Dabei werde ich von meinem Kollegen, einem Software-Architekten, unterstützt. Es bleibt dabei uns überlassen, herauszufinden, wie die Datenerhebung und die CDB funktioniert und wie man es verbessern könnte.
+Anstatt der ca. 5000 Piloten deren Daten in COC verarbeitet werden müssen in COB die Daten von ca. 20000 Personen verarbeitet werden. Das wöchentliche Laden? dieser Daten dauert bereits in COC einige Stunden, für COB wäre es also mindestens das Vierfache, wobei es in solchen Fällen meist eher exponentiell statt linear steigt. \\
+Aufgrund dieser Tatsache wird zur Datenerhebung aus der CDB eine neue Architektur benötigt, um die fast 20 Jahre alte von COC zu ersetzen. Dabei werde ich von meinem Kollegen, einem Software-Architekten, unterstützt. Es bleibt dabei uns überlassen, herauszufinden, wie die Datenerhebung und die CDB funktioniert und wie man es verbessern könnte.
 
 \subsection{Integration in das COMPAS-Umfeld}
-Den Anforderungen nach soll COB in das bereits bestehende COC eingegliedert werden. Man kann also beim Start des Programms auswählen, ob man COB oder COC starten will. Daher muss es in das bisherige System passen und darf sich nicht zu stark davon unterscheiden. 
-
-\noindent Es soll für alle Planer, die COC nutzen können, auch möglich sein COB zu nutzen, Buttons und Felder müssen also ähnlich aussehen und angeordnet sein. Ein modernes Design wäre trotzdem wünschenswert, das alte Design von COC entspricht bis jetzt nicht den allgemeinen Vorstellungen an ein neues modernes Programm.
+Den Anforderungen nach soll COB in das bereits bestehende COC eingegliedert werden. Man kann also beim Start des Programms auswählen, ob man COB oder COC starten will. Daher muss es in das bisherige System passen und darf sich nicht zu stark davon unterscheiden. \\
+Es soll für alle Planer, die COC nutzen können, auch möglich sein COB zu nutzen, Buttons und Felder müssen also ähnlich aussehen und angeordnet sein. Ein modernes Design wäre trotzdem wünschenswert, das alte Design von COC entspricht bis jetzt nicht den Vorstellungen von einem neuen modernen Programm.
 
 \subsection{Anforderungsanalyse}
 Bei der Ermittlung der Anforderungen ist mit vielen unterschiedlichen und wechselnden Anforderungen zu rechnen. Auf Seite des Fachbereiches, also den Nutzern des Programms, gibt es sehr viele unterschiedliche Ideen und Vorstellungen, die sich teilweise auch widersprechen. Jede Kleinigkeit der Software ist zu erfragen und mit dem Kunden zu besprechen, um genau das Produkt herzustellen was benötigt wird. Dazu wird eine gute Kommunikation und ein gutes Verständnis von unserer Seite aus benötigt.
 
 \subsection{Mehrfachqualifikationen}
-In COC wird jede Person genau einer Planungseinheit zugeteilt. Diese Unterscheiden sich durch Muster (Flugzeugtyp), Rolle (FO, CP oder SFO), Homebase und Airline. Die Personen einer PU dürfen also nur Flüge eines bestimmten Typs fliegen.
+In COC wird jede Person genau einer Planungseinheit zugeteilt. Diese Unterscheiden sich durch Muster (Flugzeugtyp), Rolle (FO, CP oder SFO), Homebase und Airline. Die Personen einer PU dürfen also nur Flüge eines bestimmten Typs fliegen. \\
+Die Kabinenbesatzung kann jedoch für mehrere Muster qualifiziert sein. Jede Person kann bis zu drei, aber auch weniger, Flugtypen haben, für die sie qualifiziert ist. Die Schwierigkeit besteht darin, diese Kleingruppen, in die jeder eingeteilt wird, in PUs umzuformen, sodass man die Daten sinnvoll in Beziehung setzen kann.
 
-\noindent Die Kabinenbesatzung kann jedoch für mehrere Muster qualifiziert sein. Jede Person kann bis zu drei, aber auch weniger, Flugtypen haben, für die sie qualifiziert ist. Die Schwierigkeit besteht darin, diese Kleingruppen, in die jeder eingeteilt wird, in PUs umzuformen, sodass man die Daten sinnvoll in Beziehung setzen kann.
+\subsection{Kleingruppen}
+In COC werden die Personen in PUs kategorisiert. Das ist aufgrund der Mehrfachqualifikationen (?) für die Kabine nicht möglich. Diese wird unter anderem in die KGs kategorisiert. Es ist also notwendig, die KGs in PUs umzuformen, um dann damit wie bei COC rechnen zu können. Andernfalls wäre ein komplett neuer Ansatz notwendig.
 
 \newpage
 
 \section {Grundlagen/Methodischer Ansatz}
 \subsection{Vorgehen bei der Anforderungsanalyse}
-Die Anforderungsanalyse ist der erste Schritt bei fast jedem IT-Projekt. Das Ziel dabei ist es, "`möglichst vollständige Kundenanforderungen in guter Qualität zu dokumentieren und dabei Fehler möglichst frühzeitig zu erkennen und zu beheben."' \cite[11]{pohlrupp2015} \\
+Die Anforderungsanalyse ist der erste Schritt bei fast jedem IT-Projekt. Das Ziel dabei ist es, "`möglichst vollständige Kundenanforderungen in guter Qualität zu dokumentieren und dabei Fehler möglichst frühzeitig zu erkennen und zu beheben."' \cite[S.11]{PohlRupp2015} \\
 Quelle zur Ermittlung der Anforderungen sind Dokumente, bereits existierende Systeme und besonders die sog. Stakeholder. Diese sind {\color {blue}"Person[en] oder Organisation[en], die (direkt oder indirekt) Einfluss auf die Anforderungen ha[ben]".} Gemeint sind damit also alle Personen, die in irgendeiner Weise mit der Software zu tun haben oder haben werden, z.B. der Kunde, der Nutzer, die Entwickler etc. Sie gilt es zu interviewen, um genau herauszufinden, was benötigt wird und wie die Software funktionieren und aussehen soll. Durch ständiges Nachfragen jeder einzelnen Information und Konkretisierung wird sichergestellt, dass es sich wirklich um die "`wahren Wünsche"'  des Auftraggebers handelt und genau seinen Anforderungen entspricht.  \\
 Die Schwierigkeiten hierbei sind, dass der Auftraggeber oft selbst kein konkretes Bild vor Augen hat oder die Anforderungen selber nicht genau kennt. Es ist meine Aufgabe, {\color{blue} "durch geschickte Fragen auch unbewusste Anforderungen aufzudecken"' (S.28)}  und mit wechselnden Anforderungen umgehen zu können.
 Es muss also eine ständige Kommunikation und Zusammenarbeit sichergestellt werden, was nur durch eine erfolgreiche Einbindung der Stakeholder in den Ermittlungsprozess geschehen kann. {\color{blue} vgl. S.33-34}
+
+\subsection{Anforderungskategorisierung}
+Anforderungen werden kategorisiert und nach Wichtigkeit eingeteilt. Das ist hilfreich, da die Anforderungen unterschiedlich zur Zufriedenheit der Stakeholder beitragen (vgl. S.24). Durch Kategorisierung lassen sie sich leichter einordnen, um Aufwand und Priorität besser abschätzen zu können. \\
+Ich kategorisiere die Anforderungen nach dem Kano-Modell. Demnach gibt es drei Kategorien: (vgl.S.24) 
+\begin{itemize} 
+\item[-] \textit{Basisfaktoren} sind selbstverständliche unterbewusste Systemmerkmale, die vorausgesetzt werden 
+\item[-] \textit{Leistungsfaktoren} sind bewusste, explizit geforderte Systemmerkmale
+\item[-] \textit{Begeisterungsfaktoren} sind für den Stakeholder unbekannte Systemmerkmale, die er während der Benutzung als angenehme Überraschung entdeckt
+\end{itemize}
+Mit der Zeit werden aus Begeisterungsfaktoren Leistungsfaktoren und aus Leistungsfaktoren Basisfaktoren, da der Nutzer sich an die Merkmale gewöhnt und sie irgendwann voraussetzt. Das Modell lässt sich grafisch darstellen: 
+
+\begin{figure}[H]
+	\centering
+	\includegraphics{kano.pdf}
+	\caption{Grafische Darstellung des Kano-Modells}
+	\label{img:kano}
+\end{figure}
+
+\noindent In der Grafik erkennt man die Zufriedenheit der Nutzer in Abhängigkeit von dem Erfüllungsgrad der jeweiligen Anforderungen. Anhand des gebogenen Rechtecks wird außerdem dargestellt, wie die Anforderungen durch Vergehen der Zeit die Kategorien wechseln können. \\
+Erkennbar ist, dass eine Erfüllung der Basisfaktoren gegeben sein muss. Andernfalls stellt sich bei dem Nutzer eine starke Unzufriedenheit ein. Leistungsfaktoren sollten auch erfüllt werden. Fehlen einige davon, akzeptiert der Nutzer das Produkt evtl., aber mit jedem fehlenden Merkmal sinkt seine Zufriedenheit. Begeisterungsfaktoren werden vom Nutzer erst erkannt, wenn er sie ausprobiert. Sie können die Zufriedenheit stark steigern. (vgl. S.25)
+
+
 
 \subsection{System und Systemkontext abgrenzen}
 Um ein korrektes Produkt zu entwerfen ist es wichtig, das System von seiner Umgebung abzugrenzen und Schnittstellen zu bestimmen. Dafür müssen die System- und Kontextgrenzen bestimmt werden. \\
@@ -148,6 +169,13 @@ Durch die Abgrenzung wird Aufwand vermieden, indem man bereits vorhandene Funkti
 \newpage
 
 \section {Anforderungsanalyse}
+Nach einem ersten Gespräch mit den Planerinnen habe ich einen ersten Eindruck der Anforderungen: 
+\begin{description}
+\item Basisfaktoren: Es soll ein Programm erstellt werden, dass die Kapazitäts- und später auch die Schulungsplanung automatisch regelt. Dafür müssen vor allem die Gruppen und Untergruppen eingeteilt und dargestellt werden können. Der Zeitraum soll 15 Monate betragen, um die Urlaubsplanung mit einfließen lassen zu können. Die Bestandsrechnung wird also benötigt.
+\item Leistungsfaktoren: Da es sich um den Entwurf eines Prototyps zur Kapazitätsplanung handelt, ist die Schulungsplanung ein Leistungsfaktor. Dazu gehören auch Bewerbungen für Schulungen.
+\item Begeisterungsfaktoren: Modernes Design ist ein Merkmal dafür. Auch möglich wäre, das Programm so zu designen, dass sich Cockpit- und Kabinenplaner ersetzen können und die Bedienung und Anordnung der Elemente gleich ist. Eine gute Performance wäre auch denkbar.
+\end{description}
+Da sich diese Arbeit aber nur mit der Entwicklung eines Lösungsentwurfs für den Prototypen beschäftigt, stehen die Basisfaktoren im Vordergrund. Die Leistungs- und Begeisterungsfaktoren sind für einen Prototypen erst einmal unwichtig. Sie kommen im Verlauf des Projektes dazu. Trotzdem ist eine Analyse davon wichtig, um abzugrenzen, worauf man sich konzentrieren muss.
 \newpage
 
 \section {Maßnahmen zur Modernisierung}
@@ -160,10 +188,9 @@ Durch die Abgrenzung wird Aufwand vermieden, indem man bereits vorhandene Funkti
 \newpage
 
 \pagenumbering{gobble}
-
-
-\addcontentsline{toc}{section}{Literatur}
-\bibliographystyle{unsrt}
+\section*{Literaturverzeichnis}
+\addcontentsline{toc}{section}{Literaturverzeichnis}
+\bibliographystyle{IEEEtran}
 \bibliography{literatur}
 
 \newpage
