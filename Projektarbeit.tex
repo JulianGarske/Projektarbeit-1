@@ -11,6 +11,7 @@
 \usepackage{enumitem}
 \usepackage[printonlyused]{acronym}
 \usepackage{url}
+
 \usepackage{geometry} \geometry{a4paper, top=25mm, left=20mm, right=40mm, bottom=20mm} 
 \renewcommand{\baselinestretch}{1.5}
 
@@ -70,19 +71,19 @@ Telefon(Firma): &+49 (0)69 696 74135 \\
 \section*{Abkürzungsverzeichnis}
 \addcontentsline{toc}{section}{Abkürzungsverzeichnis}
 
-\begin{acronym}[ LSY / Auftragnehmer ]
+\begin{acronym}[NL/C]
 
-\acro {BT} {Beschäftigungstage}
-\acro {CDB} {Crew Database}
+\acro{BT} {Beschäftigungstage}
 \acro{CAB} {Compas Cabin}
+\acro{CDB} {Crew Database}
 \acro{CMS} {Crew Management System}
 \acro{COC} {Compas Cockpit}
-\acro {CP} {Captain}
-\acro {FO} {First Officer}
+\acro{CP} {Captain}
+\acro{FO} {First Officer}
 \acro{KG} {Kleingruppe}
 %\acrodefplural{KG}[KGs]{Kleingruppen} 
 \acro{LSY} {Lufthansa Systems}
-\acro {NL/C} {NetLine/Crew}
+\acro{NL/C} {NetLine/Crew}
 \acro{PU} {Planungseinheit}
 
 \acro {SFO} {Senior First Officer}
@@ -106,35 +107,32 @@ Telefon(Firma): &+49 (0)69 696 74135 \\
 \section{Einleitung}
 \subsection {Motivation}
 
-%Durchgehen auf sprachliche Fehler, kritisch Abbildungen begutachten
-Bereits seitdem es kommerzielle Passagierflüge gibt, ist eine entsprechende Zuteilung der Besatzung für die Flüge notwendig. Diese Zuteilung kann aber gerade bei immer größer werdenden Fluggesellschaften wie der Lufthansa mit insgesamt ca. 20.000 Besatzungsmitgliedern zu einer Herausforderung werden. Dabei müssen nicht nur Fehlzeiten wie Urlaub oder Krankheit, sondern auch andere Faktoren z.B. Teilzeit berücksichtigt werden. Außerdem werden für unterschiedliche Flugzeuge auch unterschiedliche Qualifikationen benötigt. Die Kapazitätsplanung ist daher für jede Airline ein wichtiger Bestandteil des Flugbetriebs. \\
-Eine Erweiterung der Kapazitätsplanung ist die Schulungsplanung. Schulungen dauern oft mehrere Wochen und müssen daher langfristig vorher geplant werden, sodass Fehlzeiten ausgeglichen werden können und die Qualifikationen nach der Schulung aktualisiert werden. Das Ziel der Kapazitäts- und Schulungsplanung ist, "`durch rechtzeitige Neueinstellungen und Umschulungen die richtige Menge an Piloten mit der richtigen Qualifikation zum richtigen Zeitpunkt auf einer Flotte bereitzustellen"' \cite[vgl.][S.19]{compasdoku}. \\
+Bereits seitdem es kommerzielle Passagierflüge gibt, ist eine konkrete Zuteilung der Besatzung für die Flüge notwendig. Dabei müssen nicht nur Fehlzeiten wie Urlaub oder Krankheit, sondern auch andere Faktoren z.B. Teilzeit berücksichtigt werden. Außerdem werden für unterschiedliche Flugzeuge auch unterschiedliche Qualifikationen benötigt. Bei immer größer werdenden Fluggesellschaften, wie der Lufthansa mit ca. 20.000 Besatzungsmitgliedern, stellt die Zuteilung daher oft eine Herausforderung dar. Die sogenannte Kapazitätsplanung ist deshalb für viele Airlines ein wichtiger Bestandteil des Flugbetriebs. \\
+Eine Erweiterung der Kapazitätsplanung ist die Schulungsplanung. Schulungen dauern oft einige Wochen und müssen daher langfristig vorher geplant werden, sodass Fehlzeiten ausgeglichen werden können und die Qualifikationen nach der Schulung aktualisiert werden. Das Ziel der Kapazitäts- und Schulungsplanung ist, "`durch rechtzeitige Neueinstellungen und Umschulungen die richtige Menge an Piloten mit der richtigen Qualifikation zum richtigen Zeitpunkt auf einer Flotte bereitzustellen"' \cite[vgl.][S.19]{compasdoku}. \\
 
-\noindent Seit 2000 gibt es für die Planung der Piloten des Lufthansa Konzerns das von Lufthansa Systems entwickelte System \ac{COC}. Dadurch ist eine Planung für die etwa 5.000 Piloten bis zu 15 Monate in Zukunft möglich. Seitdem wird die Funktionalität dieses Programms regelmäßig erweitert. Anstatt die Planung per Hand durchzuführen können durch diese systematische Lösung Zeit gespart und Fehler minimiert werden. \\
-Bereits seit der ersten Veröffentlichung von \ac{COC} besteht die Idee, ein ähnliches Programm auch für die Kabinenbesatzung zu entwickeln. Diese Idee wurde immer wieder aufgegriffen und angesprochen, aber ein Projekt mit einer konkreten Analyse oder Entwicklung wurde nie begonnen. \\
+\noindent Für die Kapazitäts- und Schulungsplanung der Cockpit-Besatzung im Lufthansa Konzern gibt es seit 2000 das von Lufthansa Systems entwickelte System \ac{COC}. Dadurch ist eine Planung der Einteilung und Schulungen für die etwa 5.000 Piloten bis zu 15 Monate in Zukunft möglich. Bis heute wird die Funktionalität dieses Programms regelmäßig erweitert.  \\
+Mit der Entwicklung von \ac{COC} entstand eine Vorstellung, ein ähnliches Programm auch für die Kabinenbesatzung zu entwickeln. Durch diese systematische Lösung sollen Zeit gespart und Fehler minimiert werden \cite[vgl.][S.4]{highlevelitems}. Ein Auftrag für das Projekt wurde von dem Kunden, der Lufthansa Passage Airline, noch nicht veröffentlicht, weshalb es bis heute nicht zu einem Projekt mit einer konkreten Analyse oder Entwicklung kam.  \\
 
-\noindent Letztes Jahr hatte sich die Firma M2P Consulting bereits mit der bestehenden Kapazitätsplanung auseinander gesetzt und geprüft, wie man diese verbessern könne und ob \ac{COC} dafür in Frage käme. Sie kamen zu dem Ergebnis, dass kurzfristig zwar das bestehende Tool optimiert werden könne, um die Qualität zu verbessern, langfristig solle es aber durch eine systemseitige Lösung abgelöst werden \cite [vgl.][S.8-10]{M2P}. %Formulierung?
+\noindent Letztes Jahr hatte sich die Firma M2P Consulting bereits mit der bestehenden Kapazitätsplanung auseinandergesetzt und geprüft, wie man diese verbessern könne und ob \ac{COC} dafür in Frage käme. Sie kamen zu dem Ergebnis, dass kurzfristig zwar die bisherige Vorgehensweise der Kapazitätsplanung (siehe \ref{vorgehensweise}) optimiert werden könne, um die Qualität zu verbessern, langfristig solle es aber durch eine systemseitige Lösung abgelöst werden \cite [vgl.][S.8-10]{M2P}. %Formulierung?
 
 \subsection {Problemstellung und -abgrenzung}
-Bis heute wierden die Einsätze der Kabinenbesatzung mithilfe von verschiedenen Excel-Tabellen geplant. Diese über 200 Tabellen enthalten Daten aus unterschiedlichen Quellen, die für die Kapazitätsplanung erforderlich sind. Aufgrund der großen Datenmenge und den Verflechtungen der Tabellen untereinander sind Computerabstürze oder Fehler nichts Ungewöhnliches, was zu doppelter Arbeit und Frust der Planerinnen führt \cite[vgl.][]{Gespraech2}. \\ 
+Zurzeit werden die Einsätze der Kabinenbesatzung mithilfe von verschiedenen Excel-Tabellen geplant. Diese ca. 200 Tabellen enthalten Daten aus unterschiedlichen Quellen, die für die Zuteilung der Besatzung erforderlich sind. Aufgrund der großen Datenmenge und den Verflechtungen der Tabellen untereinander kommt es oft zu Problemen und Fehlern bei der Kapazitätsplanung \cite[vgl.][]{Gespraech2}. \\ 
 
-\noindent Nach dem Vorbild von \ac{COC} soll eine automatisierte Kapazitäts- und Schulungsplanung jetzt auch für die Kabine, also die komplette Crew, ermöglicht werden. Im Vordergrund steht dabei erst einmal die Kapazitätsplanung, die in dieser Arbeit behandelt wird. Im ersten Schritt wird dafür die Bestandsrechnung analysiert und angepasst.\\ %ggf. später ergänzen, je nachdem wie weit wir kommen
-Als Ausgangspunkt für das Projekt wird \ac{COC} mit Ähnlichkeiten in vielen Teilen des Programms genutzt. Unterschiede gibt es in der Anzahl der Personen und Daten, bei der Gruppenbildung und -einteilung und bei einigen Prämissen. Der Berechnungsalgorithmus soll den Erwartungen nach auf den neu eingeteilten Gruppen ähnlich wie in \ac{COC} angewendet werden können. \\
+\noindent Nach dem Vorbild von \ac{COC} soll eine automatisierte Kapazitäts- und Schulungsplanung jetzt auch für die Kabine, also die komplette Crew, unter dem Titel \ac{CAB} ermöglicht werden. Im Vordergrund steht dabei erst einmal die Kapazitätsplanung, die in dieser Arbeit behandelt wird. Im ersten Schritt wird dafür die Bestandsrechnung analysiert und angepasst.\\ %ggf. später ergänzen, je nachdem wie weit wir kommen
+Als Ausgangspunkt für das Projekt wird \ac{COC} genutzt, welches die gewünschten Funktionen schon für die Cockpit-Besatzung enthält. Um \ac{CAB} in \ac{COC} zu integrieren müssen nur einige Unterschiede, die es zwischen der Kapazitätsplanung der Cockpit- und der der Kabinenbesatzung gibt, behoben und geklärt werden. Diese Unterschiede, die zu der Problematik führen, dass \ac{COC} nicht so wie es ist auf die Kabinenbesatzung angewendet werden kann, werden im Kapitel \ref{unterschiede} genauer erläutert . Der Berechnungsalgorithmus soll nach der Behebung der Probleme ähnlich wie in \ac{COC} angewendet werden können. \\
 
 \noindent Besonderer Fokus liegt auf der Integration in die bestehende Systemlandschaft von \ac{COC} und die Entwicklung einer mandantenfähigen Lösung, um mehrere Airlines der Lufthansa Gruppe zu integrieren. Dabei sollen modernere Architekturansätze verwendet werden, um sich von der bereits veralteten Architektur von \ac{COC} loszulösen. \\
 Im Anwenderkonzept wird gefordert , dass die Ergebnisse zur Weiterverarbeitung in Excel exportiert werden können. Darüberhinaus sollten die Berechnungsläufe getrennt von \ac{COC} erfolgen, um sich gegenseitig nicht zu beeinträchtigen \cite[vgl. dazu][]{anwenderkonzept}.
 
 \subsection {Ziel der Arbeit} 
-Das Ziel dieser Projektarbeit ist, einen Lösungsentwurf für die Entwicklung eines explorativen Prototyps zur Kapazitätsplanung des Kabinenpersonals zu entwerfen. Daraus sollen vor allem die Anforderungsspezifikationen erkennbar sein. Der explorative Prototyp soll nach seiner Entwicklung evolutionär genutzt werden und damit Grundlage für Erweiterungen sein. Darüber hinaus wird beschrieben, wie weit \ac{COC} dazu als Vorlage dienen und ob \ac{NL/C} für die Entwicklung hilfreich sein kann. Für die beschriebenen Probleme und Merkmale soll ein Lösungsansatz gefunden werden.
+Das Ziel dieser Projektarbeit ist, einen Lösungsentwurf für die Entwicklung eines explorativen Prototyps zur Kapazitätsplanung des Kabinenpersonals zu entwerfen. Daraus sollen vor allem die Anforderungsspezifikationen erkennbar sein. Der explorative Prototyp soll nach seiner Entwicklung evolutionär genutzt werden und damit Ausgangspunkt für Erweiterungen sein. \\
+Dieser zu entwickelnde Prototyp soll Grundlage für die sogenannte Deltarechnung sein. Dabei wird der aktuelle Personenbestand mit dem Bedarf ins Verhältnis gesetzt. Für zukünftige Prognosen werden Prämissen und Erfahrungswerte genutzt. (zu ergänzen: nur Bestandsrechnung oder hauptsächlig, je nachdem wie weit wir kommen). Zunächst wird dafür die Bestandsrechnung angepasst. Darüber hinaus wird beschrieben, wie weit \ac{COC} dazu als Vorlage dienen und ob \ac{NL/C} für die Entwicklung hilfreich sein kann. Für die in Kapitel \ref{unterschiede} genannten Probleme und Merkmale soll eine Lösung gefunden werden, um den Entwurf zu realisieren.
 %NL/C fehlt noch, ggf. streichen
 
 \subsection {Vorgehen}
-Zunächst geht es darum, die Anforderungen zu ermitteln und eine Spezifikation zu erstellen. Dafür muss ermittelt werden, wie die Planung bis jetzt funktioniert und welche Anforderungen das zu entwickelnde Programm erfüllen soll. Die Quellen der Anforderungen sind die Stakeholder, das sind in diesem Fall besonders die Planerinnen, die interviewt werden. Sie wissen wie die Planung funktioniert und werden das auf der Grundlage dieser Arbeit entwickelte Programm später anwenden. Die Inhalte der Spezifikation werden mit \ac{COC} verglichen, um Gemeinsamkeiten und Unterschiede zu ermitteln und zu entscheiden, wie \ac{COC} als Vorlage genutzt werden kann. Im Vorderung steht dabei als erstes die Bestandsrechnung. Bestimmte Bereiche des Programms müssen im Vergleich zu \ac{COC} modernisiert werden, vieles kann aber auch so übernommen werden \cite[vgl.][]{Gespraech1}. Auch \ac{NL/C} wird dafür in Betracht gezogen. \\
-Die Änderungen werden anschließend konkret umgesetzt und ein genauer Entwurf wird erstellt, der als Vorlage zur Entwicklung des Prototyps dient. Man soll daraus präzise erfassen können, welche Anforderungen das zu entwickelnde Programm wie erfüllen soll.
-
-\subsection{Bisherige Vorgehensweise der Kapazitätsplanung für die Kabinenbesatzung}
-Bisher gibt es für die Kapazitätsplanung der Kabine noch kein wirkliches Tool. Zwei Angestellte der Lufthansa Passage planen die Kapazitäten mithilfe von Excel-Tabellen. Dafür verknüpfen sie ca. 220 Tabellen miteinander \cite[vgl.][]{Gespraech2}. \\ %KGs einbringen
-Nach M2P Consulting sei "`die Handlungsfähigkeit der Kapazitätsplanung in Bezug auf die zukünftige Herausforderungen stark eingeschränkt"' \cite[S.5]{M2P} und "`deckt keine der definierten Soll-Funktionalitäten der Kapazitätsplanung ausreichend ab"' \cite[S.6]{M2P}. Bei den Soll-Funktionalitäten handelt es sich nach M2P um langfristige Bereederung und Budgetplanung und um mittelfristige Bereederung \cite[vgl.][S.6]{M2P}.
+Zunächst geht es darum, die Anforderungen zu ermitteln und eine Anwenderdokumentation zu erstellen. Dafür muss die aktuelle Vorgehensweise der Kapazitätsplanung verstanden und die Anforderungen, die das zu entwickelnde Programm erfüllen soll, erfasst werden. Die Anforderungen werden in diesem Projekt hauptsächlich von den momentanen Planerinnen, die das spätere Programm anwenden, gestellt. \\
+Danach wird entschieden, wie \ac{COC} als Vorlage genutzt werden kann, indem Gemeinsamkeiten und Unterschiede zwischen \ac{CAB} und \ac{COC} ermittelt werden und ein Weg gefunden wird, ein \ac{COC}-ähnliches Programm auf die Kabinenbesatzung anzuwenden. Im Vorderung steht dabei als erstes die Bestandsrechnung. Bestimmte Bereiche des Programms müssen im Vergleich zu \ac{COC} modernisiert werden, vieles kann aber auch so übernommen werden \cite[vgl.][]{Gespraech1}. \\ % Auch \ac{NL/C} wird dafür in Betracht gezogen. \\
+Die erstellte Anwenderdokumentation dient als Grundlage für die Entwicklung des Prototyps. Man soll daraus präzise erfassen können, welche Anforderungen das zu entwickelnde Programm wie erfüllen soll.
 
 \subsection{Überblick über Compas Cockpit}
 \ac{COC} (Crew Operation Manpower Planning Advanced System) dient als Ausgangspunkt für das Projekt und nur einige Besonderheiten der Kabine müssen angepasst werden, um \ac{COC} so dafür zu übernehmen \cite[vgl.][]{Gespraech1}. Deshalb sind ein Überblick über \ac{COC} und Kenntnisse der wichtigsten Funktionen davon wichtig. Dieser Überblick stammt aus einem betriebsinternen Dokument \cite[vgl.][]{compasdoku}. \\
@@ -142,26 +140,30 @@ Nach M2P Consulting sei "`die Handlungsfähigkeit der Kapazitätsplanung in Bezu
 Um während der Planung den Überblick zu behalten, teilt \ac{COC} jeden Piloten eindeutig in eine \ac{PU} ein, die durch Flugzeugtyp, Flotte, Homebase %Glossar
 , Funktion und Subfunction %Glossar
 definiert ist. Dadurch kann für jede \ac{PU} für einen bestimmten Zeitraum tagesgenau z.B. der Bestand und Bedarf ermittelt und verglichen werden. \\
-Zusätzlich wurde das Programm mehrmals erweitert, sodass es mittlerweile aus vier internen Hauptmodulen, z.B. einem Schulungsplaner und einer Deltarechnung, die den Flugbestand ins Verhältnis zu ihrem Bedarf setzt, und zwei angrenzenden Zusatzmodulen besteht. Die Zusatzmodule sind Schnittsellen zu der Compas Datenbank und zu dem Berwerbersystem für das Cockpit \ac[vgl.][S.19]{compasdoku}.
-Der Fokus dieser Arbeit liegt auf der Deltarechnung, die Bestand mit Bedarf vergleicht. Dafür muss in \ac{CAB} zuerst die Bestandsrechnung angepasst werden. 
+Zusätzlich wurde das Programm mehrmals erweitert, sodass es mittlerweile aus vier internen Hauptmodulen, z.B. einem Schulungsplaner und der Deltarechnung, die den Flugbestand ins Verhältnis zu ihrem Bedarf setzt, und zwei angrenzenden Zusatzmodulen besteht. Die Zusatzmodule sind Schnittstellen zu der Compas Datenbank und zu dem Berwerbersystem für das Cockpit \cite[vgl.][S.19]{compasdoku}.
+
+
+\subsection{Bisherige Vorgehensweise der Kapazitätsplanung für die Kabinenbesatzung} \label{vorgehensweise}
+Bisher gibt es für die Kapazitätsplanung der Kabine noch kein wirkliches Tool. Zwei Angestellte der Lufthansa Passage planen die Kapazitäten mithilfe von Excel-Tabellen. Dafür verknüpfen sie ca. 220 Tabellen miteinander \cite[vgl.][]{Gespraech2}. Da es kaum möglich ist, jede einzelne Person konkret einzuteilen, wird jede einer \ac{KG} eingeteilt. Diese werden ähnlich wie die \acp{PU} durch Funktion, Homebase, Unterfunktion, Fluggesellschaft und ein oder mehreren Flugzeugtypen definiert. Auf Grundlage dieser \acp{KG} wird die Kapazitätsplanung durchgeführt und nur bei Bedarf können einzelne Personen genauer betrachtet werden.  \\ %KGs einbringen
+Nach M2P Consulting sei "`die Handlungsfähigkeit der Kapazitätsplanung in Bezug auf die zukünftige Herausforderungen stark eingeschränkt"' \cite[S.5]{M2P} und "`deckt keine der definierten Soll-Funktionalitäten der Kapazitätsplanung ausreichend ab"' \cite[S.6]{M2P}. Bei den Soll-Funktionalitäten handelt es sich nach M2P um langfristige Bereederung und Budgetplanung und um mittelfristige Bereederung \cite[vgl.][S.6]{M2P}.
 
 \newpage
 
-\section{Problemanalyse}
+\section{Problemanalyse} \label{unterschiede}
 \subsection{Erhebung der Pilotendaten von der Crew Database}
 Wie schon im ersten Gespräch festgestellt, soll \ac{CAB} im Vergleich zu \ac{COC}, das die Daten von etwa 6.000 Piloten verarbeitet, mit Daten von ca. 20.000 Personen umgehen können. Das wöchentliche Formatieren dieser Daten dauert bereits in \ac{COC} einige Stunden, für \ac{CAB} wäre es also ungefähr das Vierfache. Es besteht dabei jedoch das Risiko, dass die Laufzeit eher exponentiell ansteigt. Hinzu kommt, dass die Datenbank nicht lange von \ac{CAB} ausgelastet werden darf, weil auch andere Schnittstellen darauf zugreifen. Eine zu starke Auslastung kann dabei zu großen Problemen in sehr unterschiedlichen Bereichen und Systemen führen \cite[vgl.][]{Gespraech1}. \\
-Bei der Erhebung der Daten in \ac{COC} werden von der \ac{CDB}, der zentralen Datenbank, die passenden Daten herausgesucht und dann in eine neue View geladen, sodass sie alle in der passenden Form und tagesgenau für die nächsten 450 Tage vorliegen. Daraus entstehen zwei tagesgenaue Tabellen, einmal für jede Person (personenbasiert) und die andere für jede PU (kumuliert). Die hohe Anzahl an Datensätzen führt dazu, dass die Tabellen knapp 45.000 und 3.000.000 Einträge enthalten, die alle von der \ac{CDB} erhoben und berechnet werden \cite[vgl.][]{Gespraech3}.  \\
+Bei der Erhebung der Daten in \ac{COC} werden von der \ac{CDB}, der zentralen Datenbank, die Daten aus unterschiedlichen Systemen herausgesucht und dann in eine neue View geladen, sodass sie alle tagesgenau für die nächsten 450 Tage vorliegen. Daraus entstehen zwei Tabellen, einmal für jede Person (personenbasiert) und die andere für jede PU (kumuliert). Die hohe Anzahl an Datensätzen führt dazu, dass die Tabellen knapp 45.000 und 3.000.000 Einträge enthalten, die alle von der \ac{CDB} erhoben und berechnet werden \cite[vgl.][]{Gespraech3}.  \\
 
-\noindent Aus diesem Problem resultiert, dass zur Datenerhebung aus der \ac{CDB} eine neue Architektur benötigt wird, um die fast 20 Jahre alte von \ac{COC} zu ersetzen. Hinzu kommt, dass historisch bedingt in \ac{COC} viel zu viele nicht benötigte Daten angefordert werden, die früher vielleicht genutzt wurden aber mittlerweile keinen Zweck mehr erfüllen \cite[vgl.][]{Gespraech3}. Eine Veränderung des Architekturansatzes zur Datenerhebung setzt dabei natürlich Verständnis der bisherigen Architektur von \ac{COC} voraus.
+\noindent Aus diesem Problem resultiert, dass zur Datenerhebung aus der \ac{CDB} eine neue Architektur benötigt wird, um die fast 20 Jahre alte von \ac{COC} zu ersetzen. Hinzu kommt, dass historisch bedingt in \ac{COC} viel zu viele nicht benötigte Daten angefordert werden, die früher genutzt wurden aber mittlerweile keinen Zweck mehr erfüllen \cite[vgl.][]{Gespraech3}. Eine Veränderung des Architekturansatzes zur Datenerhebung setzt dabei natürlich Verständnis der bisherigen Architektur von \ac{COC} voraus.
 
-\subsection{Integration in das COMPAS-Umfeld}
+\subsection{Integration in das Compas-Umfeld}
 Sobald \ac{CAB} weit genug entwickelt worden ist, soll es, den Anforderungen nach, in das bereits bestehende \ac{COC} eingegliedert werden. Dabei soll eine Auswahl des Programms möglich sein und \ac{CAB} soll als Modul oder Erweiterung von \ac{COC} genutzt werden können \cite[vgl.][S.6]{anwenderkonzept}. Daher muss das neue Programm in das bisherige System integriert werden und darf sich nicht zu stark davon unterscheiden. Der Grund davon ist, dass es für alle Planer, die \ac{COC} nutzen können, auch möglich sein soll, \ac{CAB} zu nutzen. Deshalb ist eine ähnliche Anordnung der Buttons und Felder sowie ähnliches Design wesentlich. \\
 
 
 
-\subsection{Erfassen der Anforderungen} 
+\subsection{Erfassen der Anforderungen} \label{anforderungen}
 Bei der Anforderungsermittlung geht es darum, die passenden Anforderungen von den Stakeholdern zu ermitteln. In diesem Projekt werden die Anforderungen größtenteils von den Kabinenplanerinnen gestellt, dem sogenannten Fachbereich. \\
-Herausforderungen bei der Ermittlung sind unterschiedliche und häufig wechselnde Anforderungen. Die Stakeholder kennen sie oft selber nicht genau, sodass sich die Wünsche widersprechen oder durch neue Ideen und Vorschläge ändern.%vgl. Zube
+Herausforderungen bei der Ermittlung sind unterschiedliche und häufig wechselnde Anforderungen. Die Stakeholder können sie oft selber nicht genau benennen und ausdrücken, sodass die Wünsche sich zu widersprechen scheinen oder durch neue Ideen und Vorschläge ändern.%vgl. Zube
 Ein anderer problematischer Teil ist das Sprachverständnis während der Anforderungsermittlung. Der "'Fachbereich [kennt] in den seltensten Fällen die Fachbegriffe des Entwicklers [.] und umgekehrt [...]. Somit ist eine Art 'Übersetzungsprozess' zwischen der Sprache des Fachbereichs und der des Entwicklers notwendig"' \cite[S.319]{Alpar2016} . 
 Für den Auftragnehmer bedeutet das eine ständige Hinterfragung aller Details und Fachbegriffe sowie die Absprache jeder Kleinigkeit mit den Stakeholdern, sodass sie vollständig ihren Anforderungen entsprechen. \\
 
@@ -169,41 +171,53 @@ Für den Auftragnehmer bedeutet das eine ständige Hinterfragung aller Details u
 
 \subsection{Mehrfachqualifikationen der Kabinenbesatzung}
 Die Zuteilung jeder Person zu einer \ac{PU} ist in \ac{COC} eindeutig.
-Im Gegensatz dazu kann die Kabinenbesatzung mehreren Flotten zugeordnet sein. Jedes Kabinenmitglied wird einer sogenannten \ac{KG} zugeteilt, die durch Rolle, Flotten und Homebase definiert ist. Jede Person kann dabei bis zu drei, aber auch weniger Flugzeugtypen haben, für die sie qualifiziert ist \cite[vgl.][]{Gespraech2}. Diese Mehrfachqualifikationen müssen sinnvoll in das Programm mit aufgenommen und strukturiert werden, sodass der Algorithmus von \ac{COC} darauf angewendet werden kann.
-
-%\subsection{Einteilung in eindeutige Gruppen}
-%Die einfachste Möglichkeit, mit den im letzten Kapitel genannten Mehrfachqualifikationen umzugehen, wäre die \acp{KG} in \acp{PU} umzuformen. Dadurch wäre es möglich, auf diesen umgeformten \acp{PU} wie in \ac{COC} zu rechnen und man könnte fast das ganze Modell zu übernehmen. Andernfalls wäre ein komplett neuer Ansatz notwendig und der Aufwand für das Projekt würde sich stark erhöhen. Die Schwierigkeit besteht darin, zu ermitteln, ob und falls wie die Einteilung und Umrechnung zu \acp{PU} funktionieren kann.
+Im Gegensatz dazu kann die Kabinenbesatzung mehreren Flotten zugeordnet sein. Jedes Kabinenmitglied wird genau einer \ac{KG} zugeteilt. Dabei kann es bis zu drei, aber auch weniger Flugzeugtypen haben, für die es qualifiziert ist \cite[vgl.][]{Gespraech2}. Diese Mehrfachqualifikationen müssen sinnvoll in das Programm mit aufgenommen und strukturiert werden, sodass der Algorithmus von \ac{COC} darauf angewendet werden kann.
 
 \newpage
 
 \section {Grundlagen/Methodischer Ansatz}
-\subsection{Vorgehen bei der Anforderungsanalyse}
-Die Anforderungsanalyse ist der erste Schritt bei fast jedem IT-Projekt. Das Ziel der Analyse ist, "`möglichst vollständige Kundenanforderungen in guter Qualität zu dokumentieren und dabei Fehler möglichst frühzeitig zu erkennen und zu beheben"' \cite[S.11]{PohlRupp2015}. \\
-Quelle zur Ermittlung der Anforderungen sind Dokumente, bereits existierende Systeme und hauptsächlich die sog. Stakeholder. Diese sind "`Person[en] oder Organisation[en], die (direkt oder indirekt) Einfluss auf die Anforderungen ha[ben]"'\cite[S.21]{PohlRupp2015}. Gemeint sind damit also alle Menschen, die in irgendeiner Weise mit der Software zu tun haben oder haben werden, z.B. der Kunde, der Nutzer, die Entwickler etc. Durch Interviews lässt sich herausfinden, was sich der Kunde vorstellt und wie die Software funktionieren und aussehen soll. \\
-Da der Auftraggeber oft selbst nicht genau weiß, was er will und braucht, ist es die Herausforderung für den Analysten, jedes Detail zu hinterfragen, um die "`wahren Wünsche"' zu ermitteln, die genau seinen Erwartungen entsprechen. 
-Der Auftraggeber hat oft selbst kein konkretes Bild vor Augen und kennt die Anforderungen selber nur ungenau. Es ist die Aufgabe des Auftragnehmers, "`durch geschickte Fragen auch unbewusste Anforderungen aufzudecken"'\cite[S.28]{PohlRupp2015} und mit wechselnden Anforderungen umgehen zu können.
-Es muss also eine ständige Kommunikation und Zusammenarbeit sichergestellt werden, was nur durch eine erfolgreiche Einbindung der Stakeholder in den Ermittlungsprozess geschehen kann\cite[vgl. S. 33-34]{PohlRupp2015}.
+\subsection{Der Software-Lebenszyklus}
+Software Projekte lassen sich in einzelne Phasen unterteilen. Diese "`Phasen, die ein Softwareprodukt bei seiner Herstellung und dem späteren Einsatz durchläuft"' \cite[S.173]{gabler} nennt man den Software-Lebenszyklus eines Produktes.
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=\textwidth,keepaspectratio]{softwarelebenszyklus.PNG}
+	\caption{Lebenszyklus eines Softwareprojekts}
+	\cite[S.13]{schatten2010}
+	\label{img:softwarelebenszyklus}
+\end{figure}
+\noindent In Abbildung \ref{img:softwarelebenszyklus} lassen sich die wesentlichen Schritte des Software-Lebenszyklus erkennen. Diese sind hier entweder grob in vier Stufen oder differenzierter in sechs Stufen unterteilt. Es gibt keine Vorschriften über die Anzahl oder die Bezeichnungen der Abstufungen, sodass es sehr viele unterschiedliche Versionen des Software-Lebenszyklus und damit Vorgehensmodelle für die Softwareentwicklung gibt. Grundlegende Dinge, die hier durch \textit{Software-Spezifikation}, \textit{Design und Implementierung}, \textit{Software-Validierung} und S\textit{oftware-Evolution} dargestellt werden, "`finden sich [jedoch] nahezu in allen Projekten wieder"' \cite[S.13]{schatten2010}. \\ 
+Detaillierter lässt sich der Software-Lebenszyklus in die sechs Phasen \textit{Anforderung und Spezifikation}, \textit{Planung}, \textit{Entwurf und Design}, \textit{Implementierung und Integration}, \textit{Betrieb und Wartung} und \textit{Stilllegung} aufteilen. \\
+Die Einteilung eines Softwareprojekts in Phasen "`kann den Entwicklerteams als Leitlinie dienen, um ein Software-Projekt im Team erfolgreich zu strukturieren und abzuwickeln"' \cite[S.11]{schatten2010}. Dabei können die Phasen je nach Vorgehensmodell variieren oder wahrgenommen werden.
+
+
+\subsection{Vorgehen bei der Beschreibung und Analyse der Anforderungen}
+Die Beschreibung und Analyse von Anforderungen ist der erste Schritt bei fast jedem IT-Projekt. Zunächst wird "`aus der in einer systematischen Ermittlung gewonnenen Information [.] bei der Dokumentation eine präzise Anforderungsspezifikation erstellt"' \cite[S.44]{partsch2010}. Das Ziel dabei ist, "`möglichst vollständige Kundenanforderungen in guter Qualität zu dokumentieren und dabei Fehler möglichst frühzeitig zu erkennen und zu beheben"' \cite[S.11]{PohlRupp2015}. Für so eine Anforderungsanalyse gibt es unterschiedliche Methoden, die jedoch alle "`vor allem gesunden Menschenverstand voraus[setzen]"' \cite[S.58]{partsch2010}.\\
+Quelle zur Ermittlung der Anforderungen sind Dokumente, bereits existierende Systeme und hauptsächlich die sog. Stakeholder. Diese sind "`Person[en] oder Organisation[en], die (direkt oder indirekt) Einfluss auf die Anforderungen ha[ben]"'\cite[S.21]{PohlRupp2015}. Gemeint sind damit also alle Menschen, die in irgendeiner Weise mit der Software zu tun haben oder haben werden, z.B. der Kunde, der Nutzer, die Entwickler etc. \\
+Da der Auftraggeber oft nicht in der Lage ist genau auszudrücken, was er will und braucht, ist es die Aufgabe der Entwickler "`in Software-Projekten frühzeitig mit dem Kunden und den späteren Nutzern [zu] reden, um zu erfahren, was sie sich vorstellen"' \cite[S.15]{kleuker2006}.\\
+Es muss also eine ständige Kommunikation und Zusammenarbeit sichergestellt werden. So eine Zusammenarbeit setzt "`ein gewisses Verständnis der Arbeitsabläufe des Kunden, genauer dessen Geschäftsprozesse \cite[vgl.][]{Gad03}, [voraus], die mit der zu entwickelnden Software im Zusammenhang stehen"' \cite[S.15]{kleuker2006}.
+
 
 \subsection{Qualitätssicherung der Anforderungen}
-"`Grundsätzlich gilt, dass die Produkte aller Tätigkeiten bei der Softwareentwicklung [...] qualitätsgesichert [...] werden müssen"' \cite[S.55]{Winter1999}. Deshalb "`ist es notwendig, die Qualität der entwickelnden Anforderungen zu überprüfen"'\cite[S.95]{PohlRupp2015}, um das bereits beschriebene Problem der Anforderungsermittlung zu lösen. \\
-Diese ständige Qualitätssicherung dient dazu, Fehler möglichst früh in dem Softwarelebenszyklus, also den "`Phasen, die ein Softwareprodukt bei seiner Herstellung und dem späteren Einsatz durchläuft"' \cite[S.173]{gabler} zu erkennen und zu beheben. Der Grund dafür ist, dass die Fehlerbehebung in der Softwareentwicklung mit steigendem Projektfortschritt mehr Aufwand verursacht \cite[vgl. S.2]{Hussmann}. Aufwand kann dabei Geld oder Zeit oder auch andere zu erbringende Leistung oder Einsatz sein. Das Ziel ist daher, Fehler schon möglichst früh in dem Projektverlauf zu beseitigen. \\
+"`Grundsätzlich gilt, dass die Produkte aller Tätigkeiten bei der Softwareentwicklung [...] qualitätsgesichert [...] werden müssen"' \cite[S.55]{Winter1999}. Deshalb "`ist es notwendig, die Qualität der entwickelnden Anforderungen zu überprüfen"'\cite[S.95]{PohlRupp2015}, um Probleme der Anforderungsermittlung (siehe Kapitel \ref{anforderungen}) zu lösen.  \\
+Diese ständige Qualitätssicherung dient dazu, Fehler möglichst früh in dem Softwarelebenszyklus zu erkennen und zu beheben. Der Grund dafür ist, dass die Fehlerbehebung in der Softwareentwicklung mit steigendem Projektfortschritt mehr Aufwand verursacht \cite[vgl.][S.2]{hussmann}. Aufwand kann dabei Geld, Zeit oder auch andere zu erbringende Leistung oder Einsatz sein. Das Ziel ist daher, Fehler schon möglichst früh in dem Projektverlauf zu beseitigen. \\
 
 \noindent Dieser Aufwand der Fehlerbehebung ist der Grund für die Qualitätssicherung der Anforderungsermittlung und dadurch ist sie so wichtig für den Erfolg eines Projektes. Diese wichtige Rolle wird in dem folgenden Balkendiagramm dargestellt:
 \begin{figure}[H]
 	\hspace{-2cm}
 	\centering
 	\includegraphics[width=350px,keepaspectratio]{TUDresden.png}
-	\caption{Aufwand der Fehlerbehebung}
+	\caption{Aufwand der Fehlerbehebung in Softwareprojekten}
+	\cite[S.2]{hussmann}
 	\label{img:TUDresden}
 \end{figure}
 \noindent Das Diagramm beschreibt den Aufwand der Fehlerbehebung in einem Softwareprojekt in Abhängigkeit von dem Projektfortschritt. Der Fortschritt wird dabei als Phasen des Softwarelebenszyklus dargestellt, wobei dieser vereinfacht nur in Anforderungsdefinition, Entwicklung und Wartung aufgeteilt ist. \\
 
 \noindent Wird ein Fehler in der Phase der Anforderungsermittlung oder am Anfang des Projektes behoben, wird der Aufwand dafür mit dem Faktor Eins multipliziert. Sobald ein Fehler gefunden wurde, gilt es die Anforderung zu überarbeiten und ihn einfach zu korrigieren.\\
 Während der Entwicklung des Projektes ist der Aufwand meist um das 1,5 bis 6-fache höher. Grund dafür ist, dass Fehler, die sich dann noch in der Software befinden, oft mehrere Bereiche betreffen und viel verändert und berücksichtigt werden muss bevor man sie entgültig beheben kann.\\
-Am meisten Aufwand verursacht die Fehlerbehebung, falls der Fehler erst am Ende des Lebenszyklus entdeckt wird. Dabei ist die Software schon in Betrieb und befindet sich in der Wartung. Um dort einen Fehler zu beheben, müssen oft ganze Programmabschnitte verändert werden, damit die Software wieder fehlerfrei läuft. Es hat also große Folgen, wenn ein Teil des Programmes während der Wartung verändert werden muss, weshalb der Aufwand etwa 60 bis 100 mal höher ist als zu Anfang des Projekts. \\
-Deshalb ist es so wichtig, die einzelnen Phasen eines Softwarelebenszyklus sorgfältig zu bearbeiten und zu überprüfen, sodass keine Fehler auftreten oder diese schon so früh wie möglich erkannt werden. Es sollte daher nicht zu früh und unvorbereitet mit der Entwicklung begonnen werden.\\
-Wie überall gibt es auch hierbei Ausnahmen und Software-Projekte wo dieses Modell nicht zutrifft. Oft lohnt sich der Aufwand in der Analyse jedoch, da "`viele schwerwiegende Fehler in den frühen Phasen IS-Entwicklung [Informationssystem-Entwicklung; Anmerk. d. Verf.] gemacht werden"' \cite[S.316]{Alpar2016}. Trotzdem tritt dieser Fehler häufig auf und in vielen Fällen wird zu voreilig mit der Entwicklung angefangen. \\
-"`Das Ziel der Überprüfung von Anforderungen ist es [.], Fehler in den dokumentierten Anforderungen zu entdecken"' \cite[S.95]{PohlRupp2015} und sicherzustellen, "`dass die dokumentierten Anforderungen festgelegten Qualitätskriterien genügen, wie z.B. Korrektheit und Abgestimmtheit"' \cite[S.95]{PohlRupp2015}. Diese Qualitätskriterien lassen hauptsächlich Inhalt, Dokumentation und Abgestimmtheit gliedern. Es wird sich also damit befasst, ob die Anforderungen vollständig, detailliert, passend dokumentiert und mit allen Stakeholdern abgestimmt sind. Für jeden der drei Qualitätsaspekte gibt es damit unterschiedliche Prüfkriterien \cite[vgl.S. 97]{PohlRupp2015}.
+Am meisten Aufwand verursacht die Fehlerbehebung, falls der Fehler erst am Ende des Software-Lebenszyklus entdeckt wird. Dabei ist die Software schon in Betrieb und befindet sich in der Wartung. Um dort einen Fehler zu beheben, müssen oft ganze Programmabschnitte verändert werden, damit die Software wieder fehlerfrei läuft. Es hat also große Folgen, wenn ein Teil des Programmes während der Wartung verändert werden muss, weshalb der Aufwand etwa 60 bis 100 mal höher ist als zu Anfang des Projekts. \\
+Deshalb ist es so wichtig, die einzelnen Phasen eines Software-Lebenszyklus sorgfältig zu bearbeiten und zu überprüfen, sodass keine Fehler auftreten oder diese schon so früh wie möglich erkannt werden. Es sollte daher nicht zu früh und unvorbereitet mit der Entwicklung begonnen werden.\\
+Obwohl es Ausnahmen gibt, lohnt sich der Aufwand in der Analyse meistens, da "`viele schwerwiegende Fehler in den frühen Phasen IS-Entwicklung [Informationssystem-Entwicklung; Anmerk. d. Verf.] gemacht werden"' \cite[S.316]{Alpar2016}. Trotzdem wird in vielen Fällen zu voreilig mit der Entwicklung angefangen. \\
+"Die Analyse der in einer Anforderungsdefinition festgelegten Anforderungen zielt letztlich darauf ab, Aufschluss über die Qualität der Anforderungsbeschreibung zu erhalten"' \cite[S.51]{partsch2010}. Kriterien für die Qualität lassen sich hauptsächlich in Inhalt, Dokumentation und Abgestimmtheit gliedern. Es wird sich also damit befasst, ob die Anforderungen vollständig, detailliert, passend dokumentiert und mit allen Stakeholdern abgestimmt sind. Für jeden der drei Qualitätsaspekte gibt es damit unterschiedliche Prüfkriterien \cite[vgl.][S.97]{PohlRupp2015}.
 
 \subsubsection{Qualitätsaspekt Inhalt}
 "`Der Qualitätsaspekt >>Inhalt<< bezieht sich auf die Überprüfung von Anforderungen auf inhaltliche Fehler"' \cite[S.98]{PohlRupp2015}. Dafür gibt es acht Prüfkriterien\cite[vgl.][S.98]{PohlRupp2015}: 
@@ -219,7 +233,7 @@ Wie überall gibt es auch hierbei Ausnahmen und Software-Projekte wo dieses Mode
 \end{description}
 
 \subsubsection{Qualitätsaspekt Dokumentation}
-Bei der Dokumentation geht es darum, die "`Anforderungen auf Mängel in der Dokumentation bzw. auf Verstöße gegen geltende Dokumentationsvorschriften"'\cite[S.99]{PohlRupp2015} zu überprüfen. Hierbei gibt es folgende vier Prüfkriterien\cite[vlg. S.99f.]{PohlRupp2015}:
+Bei der Dokumentation geht es darum, die "`Anforderungen auf Mängel in der Dokumentation bzw. auf Verstöße gegen geltende Dokumentationsvorschriften"'\cite[S.99]{PohlRupp2015} zu überprüfen. Hierbei gibt es folgende vier Prüfkriterien\cite[vgl.][S.99f.]{PohlRupp2015}:
 \begin{description}[font=\itshape]\setlength\itemsep{0em}
 \item[Konformität:] Wurden die Anforderungen in dem vorgeschriebenen Dokumentationsformat strukturiert und in der richtigen Modellierungssprache dokumentiert?
 \item[Verständlichkeit:] Können die Anforderungen in dem gegebenen Kontext ggf. mithilfe eines Glossars verstanden werden?
@@ -228,7 +242,7 @@ Bei der Dokumentation geht es darum, die "`Anforderungen auf Mängel in der Doku
 \end{description}
 
 \subsubsection{Qualitätsaspekt Abgestimmtheit}
-Die Abgestimmtheit stellt sicher, dass keine "'Mängel in der Abstimmung der Anforderungen unter relevanten Stakeholdern"'\cite[S.100]{PohlRupp2015} vorliegen. Auch hierbei gibt es folgende drei Prüfkriterien\cite[vgl. S.100]{PohlRupp2015} :
+Die Abgestimmtheit stellt sicher, dass keine "'Mängel in der Abstimmung der Anforderungen unter relevanten Stakeholdern"'\cite[S.100]{PohlRupp2015} vorliegen. Auch hierbei gibt es folgende drei Prüfkriterien\cite[vgl.][S.100]{PohlRupp2015} :
 \begin{description}[font=\itshape]\setlength\itemsep{0em}
 \item[Abstimmung:] Wurde jede Anforderung mit relevanten Stakeholdern abgestimmt?
 \item[Abstimmung nach Änderungen:] Wurde jede Änderung der Anforderungen auch abgestimmt?
@@ -236,8 +250,8 @@ Die Abgestimmtheit stellt sicher, dass keine "'Mängel in der Abstimmung der Anf
 \end{description}
 
 \subsection{Anforderungskategorisierung}
-Anforderungen werden kategorisiert und nach Wichtigkeit eingeteilt. Das ist hilfreich, da die Anforderungen unterschiedlich zur Zufriedenheit der Stakeholder beitragen\cite[vgl. S.24]{PohlRupp2015}. Durch Kategorisierung lassen sie sich leichter einordnen, um Aufwand und Priorität besser abschätzen zu können. \\
-In diesem Fall werden die Anforderungen nach dem Kano-Modell kategorisiert. Demnach gibt es drei Kategorien\cite[vgl. S.24]{PohlRupp2015}:
+Anforderungen werden kategorisiert und nach Wichtigkeit eingeteilt. Das ist hilfreich, da die Anforderungen unterschiedlich zur Zufriedenheit der Stakeholder beitragen \cite[vgl. S.24]{PohlRupp2015}. Durch Kategorisierung lassen sie sich leichter einordnen, um Aufwand und Priorität besser abschätzen zu können. \\
+In diesem Fall werden die Anforderungen nach dem Kano-Modell kategorisiert. Demnach gibt es drei Kategorien \cite[vgl. S.24]{PohlRupp2015}:
 \begin{description} 
 \item[Basisfaktoren] sind selbstverständliche unterbewusste Systemmerkmale, die vorausgesetzt werden. 
 \item[Leistungsfaktoren] sind bewusste, explizit geforderte Systemmerkmale.
@@ -249,6 +263,7 @@ Mit der Zeit werden aus Begeisterungsfaktoren Leistungsfaktoren und aus Leistung
 	\centering
 	\includegraphics{kano.pdf}
 	\caption{Grafische Darstellung des Kano-Modells}
+	\cite[S.25]{PohlRupp2015}
 	\label{img:kano}
 \end{figure}
 \noindent Die Grafik zeigt die Zufriedenheit der Stakeholder in Abhängigkeit von dem Erfüllungsgrad der jeweiligen Faktoren. Auf einer dritten Achse wird die Zeit dargestellt, wodurch die Anforderungen die Kategorien wechseln können. \\
@@ -262,7 +277,7 @@ Kanos Begeisterungsfaktoren widersprechen zudem dem weit verbreiteten Vorgehen b
 
 \subsection{Abgrenzung des Systems und Systemkontextes}
 Die Abgrenzung eines Systemes zu seiner umgebung und zu den Schnittstellen ist essentiell für den Entwurf eines korrekten Produktes. Dafür müssen die System- und Kontextgrenzen bestimmt werden. \\
-Dadurch wird Aufwand vermieden, indem bereits vorhandene Funktionen evtl. integriert oder nur in etwas abgeänderter Weise übernommen werden. Außerdem bringt sie Klarheit über die Arten der Informationsgewinnung und -weiterverarbeitung, um Missverständnisse zu vermeiden. Es ist wichtig, "`die Grenzen des Systems zum Systemkontext und die Grenzen des Systemkontexts zur irrelevanten Umgebung zu bestimmen"'\cite[S.20]{PohlRupp2015}, da der Systemkontext "`auch die Anforderungen an das zu entwickelnde System bestimmt"' \cite[S.20]{PohlRupp2015}. \\
+Dadurch wird Aufwand vermieden, indem bereits vorhandene Funktionen evtl. integriert oder nur in etwas abgeänderter Weise übernommen werden. Außerdem bringt sie Klarheit über die Arten der Informationsgewinnung und -weiterverarbeitung, um Missverständnisse zu vermeiden. Es ist wichtig, "`die Grenzen des Systems zum Systemkontext und die Grenzen des Systemkontexts zur irrelevanten Umgebung zu bestimmen"' \cite[S.20]{PohlRupp2015}, da der Systemkontext "`auch die Anforderungen an das zu entwickelnde System bestimmt"' \cite[S.20]{PohlRupp2015}. \\
 Der praktische Teil zu diesem Kapitel fällt weg, da diese Arbeit \ac{COC} als Grundlage nutzt und Systemgrenzen und -schnittstellen daher schon klar definiert sind. 
 
 \subsection{Arten und Ziele des Prototypings}
@@ -283,18 +298,18 @@ Die Definition des evolutionären Prototypings widerspricht jedoch der allgemein
 
 \section {Istanalyse}
 
-\subsection{Bestandsrechnung in Compas Cockpit}
+\subsection{Bestandsrechnung in Compas Cockpit} \label{bestandsrechnung}
 Der aktuelle Algorithmus für die Bestandsrechnung in \ac{COC} ermittelt zuerst den Bruttobestand der Besatzungen \cite[vgl.][S.8]{capfunc}. 
 Dazu wird der aktuelle Pilotenbestand mit allen Formen von Zu- und Abgängen z.B. durch Umschulungen, Altersabgänge oder Neueinstellungen und Kündigungen sowie allen bezahlungswirksamen Fehlzeiten wie Teilzeit, Mutterschutz oder Fluguntauglichkeit errechnet \cite[vgl.][S.19]{benutzerhandbuch}. Insgesamt gibt es 16 Kategorien, die hier aber der Übersicht halber nicht alle genannt werden. \\
 Von diesem Bruttobestand werden alle weiteren Fehlzeiten, die sich grob in Urlaub und Krankheit einteilen lassen, subtrahiert, was zu dem Nettobestand führt \cite[vgl.][S.8]{capfunc}. \\
 Das Ergebnis aller verfügbaren Piloten ergibt sich dann durch die Subtraktion von freien Tagen, die den Piloten zustehen. Auch die Arten und die Berechnung der freien Tage werden hier nicht weiter erläutert. \\
-Dadurch ergibt sich der Bestand aller verfügbaren Piloten in \ac{BT}. Diese \ac{BT} lassen sich auf Tages-, Wochen- und Monatsbasis darstellen und zusammenfassen.
+Dadurch ergibt sich der Bestand aller verfügbaren Piloten in \ac{BT}. Diese \ac{BT} lassen sich auf Tages-, Wochen- und Monatsbasis darstellen und zusammenfassen. %PLURAL
 
 
 \subsection{Anforderungsanalyse- und kategorisierung}
 Die Planerinnen formulierten folgende Anforderungen \cite[vgl.]{Gespraech2}:
 \begin{description}
-\item Basisfaktoren: Es soll ein Programm erstellt werden, dass die Kapazitäts- und später auch die Schulungsplanung automatisch regelt. Dafür müssen vor allem die Gruppen und Untergruppen eingeteilt und dargestellt werden können. Der Zeitraum soll 15 Monate betragen, um die Urlaubsplanung des jeweils kommenden Jahres mit einfließen lassen zu können. Eine Bestandsrechnung wird also benötigt, die später um die Bedarfsrechnung ergänzt werden soll. Das Programm wird also nach und nach erweitert bis es in etwa den Funktionalitäten von \ac{COC} entspricht. \\
+\item Basisfaktoren: Es soll ein Programm erstellt werden, dass die Kapazitäts- und später auch die Schulungsplanung automatisch regelt. Dafür müssen vor allem die Gruppen und Untergruppen eingeteilt und dargestellt werden können. Der Zeitraum soll 15 Monate betragen, um die Urlaubsplanung des jeweils kommenden Jahres mit einfließen lassen zu können. Eine Bestandsrechnung wird also benötigt, die später um die Bedarfsrechnung ergänzt werden soll. Das Programm wird dann nach und nach erweitert bis es in etwa den Funktionalitäten von \ac{COC} entspricht. \\
 Der Kunde legt außerdem viel Wert auf Nachvollziehbarkeit. Es soll bei jeder Zelle der Tabellen verstanden werden können, woher die Daten her kommen oder wie sie berechnet werden. Dazu soll es wie bei \ac{COC} die Möglichkeit geben, Reports für einzelne bestimmte Daten abfragen zu können. %Glossar Report
 \item Leistungsfaktoren: Da es sich um den Entwurf eines Prototyps zur Kapazitätsplanung handelt, ist die Schulungsplanung ein Leistungsfaktor. Dazu gehören auch Bewerbungen für Schulungen. Ein weiterer Leistungsfaktor ist die Bedarfsrechnung. Diese Leistungsfaktoren werden aber später ergänzt, sodass sie nicht Bestandeil dieses Lösungsentwurfs sind. \\
 Darüber hinaus wird eine gute Performance erwartet, um die Planung zu erleichtern und Zeit zu sparen.
@@ -309,10 +324,19 @@ Wenn über \ac{COC} die aktuellen Daten dann angefordert werden, werden sie in d
 
 
 
-\section{\mbox{Gemeinsamkeiten und Unterschiede zu Compas Cockpit}}
-\subsection{Umgang mit Mehrfachqualifikationen}
-Nach Absprache des Problems der Mehrfachqualifikationen mit dem Fachbereich haben sich die Anforderungen geändert \cite[vgl.][]{Gespraech4}: \\
-Die Anwender haben eine Liste von \acp{PU} erstellt, die wie in \ac{COC} aufgebaut sind, mit dem Unterschied, dass die \acp{PU} mehrere Muster besitzen können. Sie stellen es sich so vor, dass die fest eingeteilten \acp{KG} jeweils manuell einer \ac{PU} vom Nutzer zugeordnet werden können. Diese \acp{PU} sind dann an sich nur Namen, die Bezug zu mehreren \acp{KG} haben, wenn man auf sie zugreift. Diese Zuteilung muss natürlich veränderbar und flexibel sein.
+%\section{\mbox{Gemeinsamkeiten und Unterschiede zu Compas Cockpit}}
+\
+%Daten so auf Compas DB laden, dort View erstellen. Problem: persönliche Daten
+%Daten nur bei Anfrage laden, Problem: Ladezeit
+%\subsection{Änderungen für die Bestandsrechnung}
+%TODO SUBSUBSECTIONS
+
+
+\section {Konkrete Modernisierung und Anpassung von Compas Cockpit}
+%\subsection{Umgang mit Mehrfachqualifikationen der Kabinenbesatzung}
+%Nach Absprache des Problems der Mehrfachqualifikationen mit dem Fachbereich haben sich die Anforderungen geändert \cite[vgl.][]{Gespraech4}: \\
+%Die Anwender haben eine Liste von \acp{PU} erstellt, die wie in \ac{COC} aufgebaut sind, mit dem Unterschied, dass die \acp{PU} mehrere Muster besitzen können. Sie stellen es sich so vor, dass die fest eingeteilten \acp{KG} jeweils manuell einer \ac{PU} vom Nutzer zugeordnet werden können. Diese Zuteilung muss natürlich veränderbar und flexibel sein. \\
+%Deshalb muss anstatt einer direkten Verbindung zwischen einer Person und einer \ac{PU} ein Zwischenschritt mit den \acp{KG} eingebaut werden. Die personalisierte tagesgenaue View enthält also eine Referenz mit der \ac{KG}, in der sich die Person befindet. Danach ist eine neue Tabelle notwendig, wo die \acp{KG} den \acp{PU} zugeordnet werden, die vom Anwender bearbeitet werden kann. Eine \ac{KG} hat damit Bezug zu maximal einer \ac{PU}. \\
 
 \subsection{Veränderungen bei der Datenspiegelung}
 (folgt)
@@ -320,14 +344,20 @@ Die Anwender haben eine Liste von \acp{PU} erstellt, die wie in \ac{COC} aufgeba
 - Idee: Verschlüsselung zu CRM-ID -> KG Bildung, Umformen CRM-ID -> Originaldaten nur bei Anfordern\\
 - anderer Algorithmus? nur falls es muss
 
-%Daten so auf Compas DB laden, dort View erstellen. Problem: persönliche Daten
-%Daten nur bei Anfrage laden, Problem: Ladezeit
-%\subsection{Änderungen für die Bestandsrechnung}
-%TODO SUBSUBSECTIONS
+\subsection{Veränderungen in der Bestandsrechnung}
+In der in Kapitel \ref{bestandsrechnung} beschriebenen Bestandsrechnung von \ac{COC} müssen einige Zeilen angepasst werden, damit sie der bisherigen Bestandsrechnung der Kabine entspricht. Diese Anpassung wurde mit dem Kunden genau besprochen \cite[vgl.][]{bestanddet}. \\
+Einige Zeilen wie "`Verlängerer Teilzeit"' oder "`Alterssonderurlaub"' fallen weg, da so etwas bei der Kabinenbesatzung nicht vorkommen kann. Eine Änderung wird für das Feld "`Umschulungen"' benötigt, die in \ac{COC} einfach verrechnet wurden. In \ac{CAB} ist es notwendig, zwischen Schulungen, die kürzer als 5 Tage, und welchen, die mindestens 5 Tage dauern zu unterscheiden, weshalb zwei Zeilen für die beiden Arten der Schulungen benötigt werden. \\ %Wieso?
+Auch das Feld "`FO-Leistung gesamt"' muss angepasst werden. Die Vorgehensweise in \ac{COC} ist, dass Umschüler bereits zu Beginn einer Schulung auf eine neue \ac{PU} zu dieser \ac{PU} zählen und die Flugstunden während der Schulung schon als FO-Leistung zu dem verfügbaren Bestand addiert werden. Bei der Kabinenbesatzung zählt eine Person erst zu der neuen \ac{KG}, wenn sie die Schulung beendet hat, leistet aber während der Schulung auch schon Flugstunden für die neue \ac{KG}. \\%Lösung dafür?
+Bei der restlichen Bestandsrechnung kann genau so vorgegangen werden, wie es bereits in \ac{COC} für die Cockpit-Mitarbeiter implementiert ist.
 
-\newpage
+\subsection{Prämissen der Bestandsrechnung}
 
-\section {Konkrete Modernisierung und Anpassung von COC}
+\subsection{Abbilden der Mehrfachqualifikationen und Einbindung der Kleingruppen}
+Nach Absprache des Problems der Mehrfachqualifikationen mit dem Fachbereich haben sich die Anforderungen geändert \cite[vgl.][]{Gespraech4}: \\
+Die Anwender haben eine Liste von \acp{PU} erstellt, die wie in \ac{COC} aufgebaut sind, mit dem Unterschied, dass die \acp{PU} mehrere Muster besitzen können. Sie stellen es sich so vor, dass die fest eingeteilten \acp{KG} jeweils manuell einer \ac{PU} vom Nutzer zugeordnet werden können. Diese Zuteilung muss natürlich veränderbar und flexibel sein. \\
+Deshalb muss anstatt einer direkten Verbindung zwischen einer Person und einer \ac{PU} ein Zwischenschritt mit den \acp{KG} eingebaut werden. Die personalisierte tagesgenaue View enthält also eine Referenz mit der \ac{KG}, in der sich die Person befindet. Danach ist eine neue Tabelle notwendig, wo die \acp{KG} den \acp{PU} zugeordnet werden, die vom Anwender bearbeitet werden kann. Eine \ac{KG} hat damit Bezug zu maximal einer \ac{PU}. \\
+%Lösung wie die Qualifikationen in die PUs einfließen
+
 \newpage
 
 \section {Zusammenfassung und Ausblick}
@@ -346,6 +376,22 @@ Die Anwender haben eine Liste von \acp{PU} erstellt, die wie in \ac{COC} aufgeba
 \setcounter{page}{4}
 \section* {Glossar}
 \addcontentsline{toc}{section}{Glossar}
+
+%\begin{acronym}[Crew Management System]
+
+%\acro{Bestandsrechnung} {Berechnung des verfügbaren Bestands in Beschäftigungstagen; dieser wird aus dem Bruttobestand und verschiedenen Ab- und Zugängen errechnet}
+%\acro{Compas Cabin} {Gefordertes Programm; soll in Compas Cockpit integriert werden und die Kapazitäts- und Schulungsplanung der Kabinencrew vereinfachen}
+%\acro{Compas Cockpit} {Programm zur Kapazitäts- und Schulungsplanung der Cockpit-Mitarbeiter; für die Lufthansa von Lufthansa Systems 1999 entwickelt und seitdem ständig erweitert}
+%\acro{Crew Database} {Zentrale Datenbank der Lufthansa mit Schnittstellen zu vielen unterschiedlichen Systemen; stellt die erforderlichen Daten für Compas zusammen}
+%\acro{Crew Management System} {Überbegriff für alle Schnittstellen-Systeme der Lufthansa mit der Crew Database im Mittelpunkt}
+%\acro{Deltarechnung} {Der Bestand wird ins Verhältnis zum Bedarf gesetzt und daraus das Delta ermittelt}
+%\acro{Kapazitätsplanung} {Mithilfe der Deltarechnung sollen dabei die richtige Anzahl an Personen mit den richtigen Qualifikationen zum richtigen Zeitpunkt verfügbar sein}
+%\acro{Kleingruppe} {Gruppen für die Kap.- und Schulungsplanung der Kabinenebesatzung; definiert durch  Funktion, Homebase, Unterfunktion, Fluggesellschaft, Flugzeugtyp(en)}
+%\acro{NetLine/Crew} {Von Lufthansa Systems entwickeltes Programm, das alle Phasen des Crewmanagements unterstützt}
+%\acro{Planungseinheit} {Gruppen für die Kap.- und Schulungsplanung des Cockpits; definiert durch Flugzeugtyp, Funktion, Homebase, Fluggesellschaft, Unterfunktion}
+%\acro{Report} {Detailabfrage in Compas Cockpit, wo Planzahlen aufbereitet und detaillierter als in der Gesamtübersicht dargestellt werden}
+%\end{acronym}
+
 \newpage
 
 \section* {Anlagenverzeichnis}
