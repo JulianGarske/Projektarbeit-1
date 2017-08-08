@@ -177,7 +177,8 @@ Für den Auftragnehmer bedeutet das eine ständige Hinterfragung aller Details u
 
 \subsection{Mehrfachqualifikationen der Kabinenbesatzung}
 Jede Person der Kabinenbesatzung kann mehreren Flotten zugeordnet sein. Eine Person wird zwar genau einer \ac{KG} zugeteilt, aber diese \ac{KG} kann bis zu drei, aber auch weniger Flugzeugtypen haben, für die die zugeordneten Flugbegleiter und -begleiterinnen qualifiziert sind \cite[vgl.][]{Gespraech2}. \\
-Auch in \ac {COC} ist die Zuteilung jeder Person zu einer \ac{PU} eindeutig. Jede \ac{PU} wird aber, im Gegensatz zu der Kabinenbesatzung, durch einen eindeutigen Flugzeugtypen definiert. Da die \acp{PU} Basis für die Berechnungen sind, basiert \ac{COC} auf der Tatsache, dass eine Person, anders als die Kabinenbesatzung, in genau einer Rolle auf genau einer Flotte fliegt. Deshalb muss der Prototyp sinnvoll mit den Mehrfachqualifikationen der Kabinenbesatzung umgehen können. 
+Auch in \ac {COC} ist die Zuteilung jeder Person zu einer \ac{PU} eindeutig. Jede \ac{PU} wird aber, im Gegensatz zu der Kabinenbesatzung, durch einen eindeutigen Flugzeugtypen definiert. Da die \acp{PU} Basis für die Berechnungen sind, basiert \ac{COC} auf der Tatsache, dass eine Person, anders als die Kabinenbesatzung, in genau einer Rolle auf genau einer Flotte fliegt. Deshalb muss der Prototyp sinnvoll mit den Mehrfachqualifikationen der Kabinenbesatzung umgehen können. \\
+Eine Übersicht aktueller \acp{KG} und \acp{PU} befindet sich im \autoref{kgpu}.
 
 \newpage
 
@@ -308,7 +309,7 @@ Der aktuelle Algorithmus für die Bestandsrechnung in \ac{COC} ermittelt zuerst 
 Der Bestand wird ermittelt, indem der aktuelle Pilotenbestand mit allen Formen von Zu- und Abgängen z.B. durch Umschulungen, Altersabgänge, Neueinstellungen oder Kündigungen sowie allen bezahlungswirksamen Fehlzeiten wie Teilzeit, Mutterschutz oder Fluguntauglichkeit errechnet wird \cite[vgl.][S.19]{benutzerhandbuch}. Insgesamt gibt es 16 Kategorien, die hier aber der Übersicht halber nicht alle genannt werden. \\
 Von diesem Bruttobestand werden alle weiteren Fehlzeiten, die sich grob in Urlaub und Krankheit einteilen lassen, subtrahiert, was zu dem Nettobestand führt \cite[vgl.][S.8]{capfunc}. \\
 Das Ergebnis aller verfügbaren Piloten ergibt sich dann durch die Subtraktion von freien Tagen, die den Piloten zustehen. Auch die Arten und die Berechnung der freien Tage werden hier nicht weiter erläutert. \\
-Dadurch ergibt sich der Bestand aller verfügbaren Piloten in \acp{BT}. Diese \acp{BT} lassen sich auf Tages-, Wochen- und Monatsbasis darstellen und zusammenfassen. 
+Dadurch ergibt sich der Bestand aller verfügbaren Piloten in \acp{BT}. Diese \acp{BT} lassen sich auf Tages-, Wochen- und Monatsbasis darstellen und zusammenfassen. Ein Screenshot der Bestandsrechnung aus \ac{COC} befindet sich im \autoref{bestandscreen}, wo weitere Details erkennbar sind.
 
 
 \subsection{Anforderungsanalyse- und kategorisierung}
@@ -415,17 +416,19 @@ Unterfunktion & auch Subfunction; optionale Erweiterung der Funktion \\
 \addcontentsline{toc}{section}{Anhang}
 \appendix
 \addtocontents{toc}{\protect\setcounter{tocdepth}{-1}}
-\section{\mbox{Detaillierte Bestandsrechnung in COC - Screenshot}}
+\section{\mbox{Detaillierte Bestandsrechnung in COC - Screenshot}} 
+\label{bestandscreen}
 \begin{flushleft}
 \includegraphics[width = 500px, keepaspectratio]{Bestand.png}
 \end{flushleft}
 
-%\section{Gesprächsprotokoll vom 5. Juli 2017}
-\includepdf[pages=1, pagecommand=\section{Gesprächsprotokoll vom 5. Juli 2017}, scale = 0.95]{Meeting0407.pdf}
+\includepdf[pages=1, pagecommand={\section{Gesprächsprotokoll vom 4. Juli 2017} \label{meeting0407}},  scale = 0.95]{Meeting0407.pdf}
 \includepdf[pages=2-,pagecommand={}]{Meeting0407.pdf}
 
-\includepdf[pagecommand={\section{Beispiele für Kleingruppen und Planungseinheiten}}, scale = 0.8, keepaspectratio]{Kleingruppen.pdf}
+
+\includepdf[pagecommand={\section{Beispiele für Kleingruppen und Planungseinheiten} \label{kgpu}}, scale = 0.8, keepaspectratio]{Kleingruppen.pdf}
 \includepdf{Planungseinheiten.pdf}
+
 \newpage
 
 \end{document}
