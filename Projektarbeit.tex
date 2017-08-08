@@ -12,6 +12,7 @@
 \usepackage[printonlyused]{acronym}
 \usepackage{url}
 \usepackage{ltablex}
+\usepackage{pdfpages}
 
 \usepackage{geometry} \geometry{a4paper, top=25mm, left=20mm, right=40mm, bottom=20mm} 
 \renewcommand{\baselinestretch}{1.5}
@@ -41,14 +42,14 @@
 Verfasser: & Julian Garske \\
 Matrikelnummer: & 6728241 \vspace{0.5cm} \\ 
 Kurs: & WWI SCA16 \\
-Studiengangsleiter:& Dr. Frank Koslowski \vspace{0.5cm} \\
+Studiengangsleiter:& Prof. Dr. Frank Koslowski \vspace{0.5cm} \\
 Wissenschaftlicher Betreuer: & Günter Stumpf \\ 
 Telefon:& 01511 8237778\\ 
 Mailadresse:& guenter.stumpf@esosec.de \vspace{0.5cm}\\
 Ausbildungsbetrieb: &Lufthansa Systems GmbH \& Co. KG \\ 
 & Am Prime Parc 1 \\ 
 & D 65479 Raunheim \vspace{0.5cm}\\
-Unternehmensbetreuer: &Berger, Iwan \\ 
+Unternehmensbetreuer: & Iwan Berger \\ 
 Telefon(Firma): &+49 (0)69 696 74135 \\
  Mailadresse(Firma):& iwan.berger@lhsystems.com \\
 \end{tabular}
@@ -63,9 +64,6 @@ Telefon(Firma): &+49 (0)69 696 74135 \\
 
 
 \pagenumbering{gobble}
-\section*{Kurzfassung (Abstract)}
-\addcontentsline{toc}{section}{Kurzfassung (Abstract)}
-\newpage
 
 
 \pagenumbering{Roman}
@@ -98,9 +96,6 @@ Telefon(Firma): &+49 (0)69 696 74135 \\
 \listoffigures
 \newpage
 
-\section*{Anlagenverzeichnis}
-\addcontentsline{toc}{section}{Anlagenverzeichnis}
-\newpage
 
 \pagenumbering{arabic}
 \setcounter{page}{1}
@@ -126,23 +121,28 @@ Als Ausgangspunkt für das Projekt wird \ac{COC} genutzt, da es viele gewünscht
 \\%Darüberhinaus sollten die Berechnungsläufe getrennt von \ac{COC} erfolgen, um sich gegenseitig nicht zu beeinträchtigen \cite[vgl. dazu][]{anwenderkonzept}.
 
 \subsection {Ziel der Arbeit} 
-Das Ziel dieser Projektarbeit ist, einen initialen Lösungsentwurf für die Entwicklung eines explorativen Prototyps zur Kapazitätsplanung des Kabinenpersonals zu erstellen. Daraus sollen vor allem die Anforderungen und Funktionen erkennbar sein. Der explorative Prototyp soll nach seiner Entwicklung evolutionär genutzt werden und damit Ausgangspunkt für Erweiterungen sein. \\
-Auf der Grundlage des Prototyps soll die sogenannte Deltarechnung ermöglicht werden. Dabei wird der aktuelle Personenbestand mit dem Bedarf ins Verhältnis gesetzt und damit die Kapazitäten ermittelt. Für zukünftige Prognosen werden Prämissen und Erfahrungswerte genutzt. \\
+%Das Ziel dieser Projektarbeit ist, einen initialen Lösungsentwurf für die Entwicklung eines explorativen Prototyps zur Kapazitätsplanung des Kabinenpersonals zu erstellen. Daraus sollen vor allem die Anforderungen und Funktionen erkennbar sein. Der explorative Prototyp soll nach seiner Entwicklung evolutionär genutzt werden und damit Ausgangspunkt für Erweiterungen sein. \\
+%Auf der Grundlage des Prototyps soll die sogenannte Deltarechnung ermöglicht werden. Dabei wird der aktuelle Personenbestand mit dem Bedarf ins Verhältnis gesetzt und damit die Kapazitäten ermittelt. Für zukünftige Prognosen werden Prämissen und Erfahrungswerte genutzt. \\
 
-\noindent In dieser Arbeit wird für die Kapazitätsplanung die Bestandsrechnung erläutert und angepasst. Darüber hinaus wird evaluiert, ob und wie weit \ac{COC} dazu als Vorlage dienen kann und welche Unterschiede in der Bestandsrechnung zwischen der Cockpit- und der Kabinenbesatzung beachtet werden müssen. Für Probleme, die aus diesen Unterschieden resultieren, soll eine Lösung gefunden werden, damit das Modell von \ac{COC} in ähnlicher Weise auf die Kapazitätsplanung der Kabine angewendet werden kann.
+%\noindent In dieser Arbeit wird für die Kapazitätsplanung die Bestandsrechnung erläutert und angepasst. Darüber hinaus wird evaluiert, ob und wie weit \ac{COC} dazu als Vorlage dienen kann und welche Unterschiede in der Bestandsrechnung zwischen der Cockpit- und der Kabinenbesatzung beachtet werden müssen. Für Probleme, die aus diesen Unterschieden resultieren, soll eine Lösung gefunden werden, damit das Modell von \ac{COC} in ähnlicher Weise auf die Kapazitätsplanung der Kabine angewendet werden kann.
 %NL/C fehlt noch, ggf. streichen
+
+Zunächst war das Ziel der Arbeit, einen Lösungsentwurf für die Entwicklung eines Prototypes zur Kapazitätsplanung zu erarbeiten. Darüber hinaus sollte diskutiert werden, wie weit \ac{COC} als Vorlage genutzt werden kann und welche Unterschiede es zur Kapazitätsplanung der Cockpitbesatzung gibt. \\
+Relativ schnell wurde klar, dass der Umfang der Kapazitätsplanung den dieser Arbeit überschreitet. Das Hauptelement der Kapazitätsplanung ist die Deltarechnung, in der Bestand und Bedarf zueinander ins Verhältnis gesetzt werden und das Delta ermittelt wird. Besonders eine Lösung für die Automatisierung der Bedarfsrechnung der Kabinenbesatzung zu finden stellte sich schnell als relativ kompliziert heraus. Deswegen fokussiert sich diese Arbeit nur auf den ersten Schritt, die Bestandsrechnung. \\
+Während offiziell noch nicht entschieden wurde, ob das Programm ein Tool von \ac{COC} wird oder ob ein eigenständiges und moderneres Programm entwickelt wird, lässt sich bereits eine Tendenz erkennen. Die einfachste Lösung für alle Stakeholder ist, \ac{COC} als Vorbild zu nutzen, da es viele Gemeinsamkeiten mit dem gewünschten Programm bereits beinhaltet. \\
+Deshalb fokussiert sich diese Projektarbeit auf die Unterschiede zwischen der Bestandsrechnung in \ac{COC} und der gewünschten automatisierten Bestandsrechnung für die Kabinenbesatzung. Es werden Lösungsansätze für daraus entstehende Probleme gefunden und ein konkreter Entwurf erstellt, wie \ac{COC} angepasst werden sollte, um eine automatisierte Bestandsrechnung für die Kabinenbesatzung zu ermöglichen.
 
 \subsection {Vorgehen}
 Zunächst ist es nötig, die Anforderungen zu ermitteln und abzuklären. Dafür muss die aktuelle Vorgehensweise der Kapazitätsplanung verstanden und die Anforderungen, die das zu entwickelnde Programm erfüllen soll, erfasst werden. Die Anforderungen werden in diesem Projekt hauptsächlich von den momentanen Planerinnen, die das spätere Programm anwenden, gestellt. \\
 Danach werden Gemeinsamkeiten und Unterschiede zwischen \ac{CAB} und \ac{COC} ermittelt, um damit bewerten zu können, wie \ac{COC} als Vorlage geeignet ist. %Zwar könnten viele Dinge aus \ac{COC} für \ac{CAB} übernommen werden, jedoch soll im Gegenteil zu \ac{COC} ein modernes Programm entwickelt werden \cite[vgl.][]{Gespraech1}. \\ % Auch \ac{NL/C} wird dafür in Betracht gezogen. \\
 Eine Anwenderdokumentation dient als Grundlage für die Entwicklung des Prototyps. Sie beschreibt aus fachlicher Sicht, wie der Nutzer mit dem Programm interagieren kann und welche Funktionen es beinhaltet.
 
-\subsection{Überblick über Compas Cockpit}
+\subsection{Überblick über COMPAS Cockpit}
 \ac{COC} (Crew Operation Manpower Planning Advanced System) dient als Ausgangspunkt für das Projekt und nur einige Besonderheiten müssen bei dem aktuellen Programms angepasst werden, um die Kapazitätsplanung der Kabinenbesatzung dadurch zu automatisieren \cite[vgl.][]{Gespraech1}. Deshalb sind ein Überblick über \ac{COC} und Kenntnisse der wichtigsten Funktionen davon wichtig. Dieser Überblick stammt aus einem betriebsinternen Dokument \cite[vgl.][]{compasdoku}. \\
 \ac{COC} ist das zentrale Tool für die Kapazitätsplanung des Cockpitpersonals. Ziel dieser Planung ist es, die richtige Anzahl an Piloten mit passenden Qualifikationen zu einem bestimmten Zeitpunkt auf eine Flotte bereitstellen zu können. Das kann kurzfristig gesteuert oder langfristig prognostiziert werden. Diese Planung ist sehr komplex, da sehr viele Einflussfaktoren dort berücksichtigt werden müssen. \\
 Um während der Planung den Überblick zu behalten, teilt \ac{COC} jeden Piloten eindeutig in eine \ac{PU} ein, die durch Flugzeugtyp, Flotte, Standort, Funktion und Unterfunktion definiert ist. Dadurch kann für jede \ac{PU} für einen bestimmten Zeitraum tagesgenau z.B. der Bestand und Bedarf ermittelt und verglichen werden. \\
 
-\noindent Zusätzlich wurde das Programm mehrmals erweitert, sodass es mittlerweile aus vier internen Hauptmodulen, z.B. einem Schulungsplaner und der Deltarechnung und zwei angrenzenden Zusatzmodulen besteht. Die Zusatzmodule sind Schnittstellen zu der Compas Datenbank und zu dem Berwerbersystem für das Cockpit \cite[vgl.][S.19]{compasdoku}.
+\noindent Zusätzlich wurde das Programm mehrmals erweitert, sodass es mittlerweile aus vier internen Hauptmodulen, z.B. einem Schulungsplaner und der Deltarechnung und zwei angrenzenden Zusatzmodulen besteht. Die Zusatzmodule sind Schnittstellen zu der COMPAS Datenbank und zu dem Berwerbersystem für das Cockpit \cite[vgl.][S.19]{compasdoku}.
 
 
 \subsection{Bisherige Vorgehensweise der Kapazitätsplanung für die Kabinenbesatzung} \label{vorgehensweise}
@@ -160,7 +160,7 @@ Hinzu kommt, dass die Datenbank nicht lange von \ac{CAB} ausgelastet werden darf
 
 \noindent Aus diesem Problem resultiert, dass zur Datenerhebung aus der \ac{CDB} eine neue Architektur benötigt wird, um die fast 20 Jahre alte von \ac{COC} zu ersetzen \cite[vgl.][]{Gespraech3}. Für eine Veränderung des Architekturansatzes zur Datenaufbereitung wird ein grobes Verständnis der bisherigen Architektur von \ac{COC} benötigt.
 
-\subsection{Integration in das Compas-Umfeld}
+\subsection{Integration in das COMPAS-Umfeld}
 Sobald \ac{CAB} weit genug entwickelt worden ist, soll es, den aktuellen Anforderungen nach, in das bereits bestehende \ac{COC} integriert werden. Der Kunde möchte momentan kein weiteres Programm haben. %Dabei soll eine Auswahl des Programms möglich sein und \ac{CAB} soll als Modul oder Erweiterung von \ac{COC} genutzt werden können \cite[vgl.][S.6]{anwenderkonzept}. 
 Im Gegensatz dazu soll aber auch ein modernes Programm entwickelt werden. Deshalb ist es unklar, ob man dieses im Endeffekt in \ac{COC} integriert oder doch ein neues Programm entwickelt, was sogar als Vorlage für eine Modernisierung von \ac{COC} genutzt werden kann. Das Ergebnis dieses Projektes soll auch als Entscheidungshilfe dienen.\\
 
@@ -303,7 +303,7 @@ Die Definition des evolutionären Prototypings widerspricht jedoch der allgemein
 
 \section {Istanalyse}
 
-\subsection{Bestandsrechnung in Compas Cockpit} \label{bestandsrechnung}
+\subsection{Bestandsrechnung in COMPAS Cockpit} \label{bestandsrechnung}
 Der aktuelle Algorithmus für die Bestandsrechnung in \ac{COC} ermittelt zuerst den Bruttobestand der Besatzungen \cite[vgl.][S.8]{capfunc}. Die Einheiten für alle Bestands- und Bedarfsrechnungen sind \ac{BT} oder Stunden. \\
 Der Bestand wird ermittelt, indem der aktuelle Pilotenbestand mit allen Formen von Zu- und Abgängen z.B. durch Umschulungen, Altersabgänge, Neueinstellungen oder Kündigungen sowie allen bezahlungswirksamen Fehlzeiten wie Teilzeit, Mutterschutz oder Fluguntauglichkeit errechnet wird \cite[vgl.][S.19]{benutzerhandbuch}. Insgesamt gibt es 16 Kategorien, die hier aber der Übersicht halber nicht alle genannt werden. \\
 Von diesem Bruttobestand werden alle weiteren Fehlzeiten, die sich grob in Urlaub und Krankheit einteilen lassen, subtrahiert, was zu dem Nettobestand führt \cite[vgl.][S.8]{capfunc}. \\
@@ -314,7 +314,7 @@ Dadurch ergibt sich der Bestand aller verfügbaren Piloten in \acp{BT}. Diese \a
 \subsection{Anforderungsanalyse- und kategorisierung}
 Die Planerinnen formulierten folgende Anforderungen \cite[vgl.][]{Gespraech2}:
 \begin{description}
-\item Basisfaktoren: Es soll ein Programm erstellt werden, dass die Kapazitäts- und später auch die Schulungsplanung automatisch regelt. Dafür müssen vor allem die Gruppen und Untergruppen eingeteilt und dargestellt werden können. Der Zeitraum soll 15 Monate betragen, um die Urlaubsplanung des jeweils kommenden Jahres mit einfließen lassen zu können. Eine Bestandsrechnung wird also benötigt, die später um die Bedarfsrechnung ergänzt werden soll. Wird eine Integration in das Compas-Umfeld beschlossen, wird das Programm nach und nach erweitert bis es in etwa den Funktionalitäten von \ac{COC} entspricht. \\
+\item Basisfaktoren: Es soll ein Programm erstellt werden, dass die Kapazitäts- und später auch die Schulungsplanung automatisch regelt. Dafür müssen vor allem die Gruppen und Untergruppen eingeteilt und dargestellt werden können. Der Zeitraum soll 15 Monate betragen, um die Urlaubsplanung des jeweils kommenden Jahres mit einfließen lassen zu können. Eine Bestandsrechnung wird also benötigt, die später um die Bedarfsrechnung ergänzt werden soll. Wird eine Integration in das COMPAS-Umfeld beschlossen, wird das Programm nach und nach erweitert bis es in etwa den Funktionalitäten von \ac{COC} entspricht. \\
 Der Kunde legt außerdem viel Wert auf Nachvollziehbarkeit. Es soll bei jeder Zelle der Tabellen verstanden werden können, woher die Daten her kommen oder wie sie berechnet werden. Dazu soll es wie bei \ac{COC} die Möglichkeit geben, sich einzelne Detailabfragen anzeigen lassen zu können.
 \item Leistungsfaktoren: Da es sich um den Entwurf eines Prototyps zur Kapazitätsplanung handelt, ist die Bedarfsrechnung und die Schulungsplanung ein Leistungsfaktor. Dazu gehören auch Bewerbungen für Schulungen. Diese Leistungsfaktoren werden aber später ergänzt, sodass sie nicht Bestandeil dieses Lösungsentwurfs sind. \\
 Darüber hinaus wird eine gute Performance erwartet, um die Planung zu erleichtern und Zeit zu sparen.
@@ -325,20 +325,19 @@ Da sich diese Arbeit aber nur mit der Entwicklung eines Lösungsentwurfs für de
 \subsection {Die Schnittstelle: Das Crew Management System}
 Die Quelle, aus der \ac{COC} die benötigten Daten entnimmt, ist das \ac{CMS} oder genauer gesagt die \ac{CDB}. Unter dem \ac{CMS} wird das gesamte Planungssystem der Lufthansa verstanden, das aus vielen verschiedenen einzelnen Systemen besteht. Im Mittelpunkt davon steht die \ac{CDB}, wo die Daten zusammen fließen und in einer Datenbank gespeichert werden. Es wird also von sehr vielen Seiten aus auf die \ac{CDB} zugegriffen, was ihr sehr viel Leistung und Performance abverlangt. \\
 Damit \ac{COC} alle benötigten Daten in der tagesgenauer Form erhalten kann, bereitet die \ac{CDB} diese Daten zwei mal im Monat auf, indem sie sie aus allen anderen Tabellen anderer Systeme herausfiltert und dann Views erstellt, die der benötigten Form entspricht. Das Erstellen dieser Views verursacht dabei sehr viel Aufwand und Auslastung der \ac{CDB}.\\
-Wenn über \ac{COC} die aktuellen Daten dann angefordert werden, werden sie in die eigene Compas-Datenbank geladen, wo direkt drauf zugegriffen werden kann. Das Aktualisieren der Tabellen aus der Views nimmt dabei nicht viel Zeit in Anspruch, da die Daten nur geladen und nicht verändert oder formatiert werden müssen.
+Wenn über \ac{COC} die aktuellen Daten dann angefordert werden, werden sie in die eigene COMPAS-Datenbank geladen, wo direkt drauf zugegriffen werden kann. Das Aktualisieren der Tabellen aus der Views nimmt dabei nicht viel Zeit in Anspruch, da die Daten nur geladen und nicht verändert oder formatiert werden müssen.
 
 \newpage
-\section [Konkrete Modernisierung und Anpassung von Compas Cockpit]{Konkrete Modernisierung und Anpassung von \\ Compas Cockpit}
+\section [Konkrete Modernisierung und Anpassung von COMPAS Cockpit]{Konkrete Modernisierung und Anpassung von \\ Compas Cockpit}
 \subsection{Veränderungen bei der Datenaufbereitung}
 Um Laufzeit- und Performanceprobleme bei der Datenaufbereitung zu vermeiden, wird eine andere Vorgehensweise als in \ac{COC} benötigt. Die einfachste Möglichkeit dazu ist, alle Rohdaten, aus denen die Views erstellt werden, unverändert von der \ac{CDB} in den eigenen Teil der Datenbank von \ac{COC} zu laden. Von dort aus werden die Views von einem für \ac{COC} dedizierten Server, der innerhalb des \ac{CMS} liegt, zur Verfügung gestellt \cite[vgl. dazu][]{Gespraech5}. Da der Server wie die \ac{CDB} im \ac{CMS} liegt, gilt für ihn auch der gleiche Sicherheitsstandart.\\
-Dadurch hat die \ac{CDB} nur noch die Aufgabe, die Tabellen der Rohdaten zur Verfügung zu stellen, und es wird ihr keine große Leistung abverlangt. Die Auslastung wird von der \ac{CDB} auf den Compas-eigenen Server verschoben. Weil \ac{COC} diesen Server nur nutzt, um einige zeitbasierte wiederkehrende Aufgaben auszuführen, ist es kein Problem, diesen für eine längere Dauer auszulasten. Selbst bei starker Auslastung wird damit kein anderes System beeinträchtigt. Durch eine höhere Programmiersprache und einem effizienteren Algorithmus kann die Datenaufbereitung außerdem deutlich schneller erfolgen. Nach der Erstellung der Views werden alle daraus erhaltenen Daten wie bislang wieder in den Compas-eigenen Teil der \ac{CDB} geladen, worauf das Programm darauf zugreift. \\
+Dadurch hat die \ac{CDB} nur noch die Aufgabe, die Tabellen der Rohdaten zur Verfügung zu stellen, und es wird ihr keine große Leistung abverlangt. Die Auslastung wird von der \ac{CDB} auf den COMPAS-eigenen Server verschoben. Weil \ac{COC} diesen Server nur nutzt, um einige zeitbasierte wiederkehrende Aufgaben auszuführen, ist es kein Problem, diesen für eine längere Dauer auszulasten. Selbst bei starker Auslastung wird damit kein anderes System beeinträchtigt. Durch eine höhere Programmiersprache und einem effizienteren Algorithmus kann die Datenaufbereitung außerdem deutlich schneller erfolgen. Nach der Erstellung der Views werden alle daraus erhaltenen Daten wie bislang wieder in den COMPAS-eigenen Teil der \ac{CDB} geladen, worauf das Programm darauf zugreift. \\
 
 \noindent Bei der Datenaufbereitung wird mit personenbezogenen Daten gearbeitet, weshalb beim Erstellen der Views "`die Bestimmungen des Bundesdatenschutzgesetzes"' \cite[S.6]{CMS} und weitere "`spezielle Schutzvorschriften [,die] zwischen den Geschäftsleitungen und den Mitarbeitervertretungen [der Lufthansa AG; Anmerk. d. Verf.] definiert [wurden]"' \cite[S.6]{CMS}, gelten. Obwohl für beide Systeme die gleichen Sicherheitsvorkehrungen gelten, musste diese Vorgehensweise diskutiert und eine Genehmigung benötigt werden. 
 
 \subsection{Veränderungen in der Bestandsrechnung} %oder doch ganz anders?
 In der in Kapitel \ref{bestandsrechnung} beschriebenen Bestandsrechnung von \ac{COC} müssen einige Zeilen angepasst werden, damit sie der bisherigen Bestandsrechnung der Kabine entspricht. Diese Anpassung wurde mit dem Kunden genau besprochen \cite[vgl.][]{bestanddet}. \\
 Einige Zeilen wie "`Verlängerer Teilzeit"' oder "`Alterssonderurlaub"' fallen weg, da so etwas bei der Kabinenbesatzung nicht vorkommen kann. Eine Änderung wird für das Feld "`Umschulungen"' benötigt, die in \ac{COC} einfach verrechnet wurden. In \ac{CAB} ist es notwendig, zwischen Schulungen, die kürzer als fünf Tage, und welchen, die mindestens fünf Tage dauern zu unterscheiden, weshalb zwei Zeilen für die beiden Arten der Schulungen benötigt werden. \\ %Wieso?
-%Auch das Feld "`FO-Leistung gesamt"' muss angepasst werden. Bei der Cockpitbesatzung zählen Flugschüler bereits zu Beginn einer Schulung zum Bestand einer neuen \ac{PU}. Falls sie während der Schulung von einem bestehenden Piloten der neuen \ac{PU} betreut werden müssen, wird dieser unter dem Feld "`FO-Leistung"' von dem Bestand wieder subtrahiert. Bei der Kabinenbesatzung zählt ein/e Flugschüler/in erst zu der neuen \ac{KG}, wenn er oder sie die Schulung beendet hat, leistet aber während der Schulung auch schon Flugstunden für die neue \ac{KG}. \\%Lösung dafür?, TODO FO-Leistung?
 Bei der restlichen Bestandsrechnung kann genau so vorgegangen werden, wie es bereits in \ac{COC} für die Cockpit-Mitarbeiter implementiert ist.
 
 %\subsection{Prämissen der Bestandsrechnung}
@@ -352,20 +351,20 @@ Deshalb muss anstatt einer direkten Verbindung zwischen einer Person und einer \
 \newpage
 
 \section {Zusammenfassung und Ausblick}
-\subsection{Änderungen an Compas Cockpit um es für eine automatisierte Kapazitätsplanung der Kabinenbesatzung zu nutzen}
+\subsection{Änderungen an COMPAS Cockpit um es für eine automatisierte Kapazitätsplanung der Kabinenbesatzung zu nutzen}
 Um auf Grundlage von \ac{COC} die Kapazitätsplanung der Kabinenbesatzung zu automatisieren, müssten einige Dinge des Programms angepasst werden: \\
 Die Funktionsweise der Datenaufbereitung muss aufgrund der hohen Anzahl an Daten verändert werden. Die beste und einfachste Lösung dafür ist, das Erstellen der Views von der \ac{CDB} auf einen Server zu verlegen, der nur von \ac{COC} genutzt wird. Dazu kann der Algorithmus durch eine höhere Programmiersprache wie z.B. Python verbessert werden. \\
 Um Mehrfachqualifikationen der Kabinenbesatzung für Flotten sinnvoll in das Programm mit aufzunehmen, werden die \acp{KG}, die die Qualifikationen enthalten vom Nutzer selbst \acp{PU} zugewiesen. Dadurch ist eine eindeutige Bestandsrechnung möglich. Die Bestandsrechnung an sich ist für die Kapazitätsplanung der Cockpit- und der Kabinenbesatzung nahezu dieselbe. \\
 Desweiteren ist es nötig, viele Kleinigkeiten, z.B. Datenfelder oder Prämissen für eine Prognosenberechnung, anzupassen und sich mit dem Kunden alle Details anzuschauen. Daraus ergibt sich, welche Funktionen er nicht mehr oder zusätzlich benötigt. Die hauptsächlichen Funktionen bleiben aber im Vergleich zu \ac{COC} unverändert. \\
 Durch die Ähnlichkeit der Kapazitätsplanung in beiden Bereichen, ist es relativ einfach und vorteilhaft, \ac{CAB} in \ac{COC} einzugliedern und es als Vorlage zu nutzen. 
 
-\subsection{Probleme bei der Anpassung der Bedarfsrechnung der Kabinenbesatzung nach dem Vorbild von Compas Cockpit}
+\subsection{Probleme bei der Anpassung der Bedarfsrechnung der Kabinenbesatzung nach dem Vorbild von COMPAS Cockpit}
 Nachdem die Bestandsrechnung relativ einfach angepasst werden kann, um de Bestand des Kabinenpersonals zu ermitteln, entstehen bei der Anpassung der Bedarfsrechnung weitere Probleme. Der Bedarf wird als nächster Schritt benötigt, um aus Bestand und Bedarf die Kapazität zu ermitteln. Bekommt die Lufthansa z.B. ein neues Flugzeug, einen Airbus A340, wird für dieses Flugzeug eine Cockpitbesatzung benötigt. Dieser Bedarf fällt auf eindeutige \acp{PU} zurück, die genau die Piloten beinhalten, die in den benötigten Funktionen eine A340 fliegen. Da jede \ac{PU} des Cockpits eindeutig ist, kann der Bedarf einfach zugeordnet werden. \\
 Aufgrund der Mehrfachqualifikationen entstehen bei der Bedarfszuordnung der Kabinenbesatzung aber Schwierigkeiten. Für die Kabinenbesatzung gibt es für eine Rolle z.B. eine \ac{PU}1, in denen die Leute auf einer A380 und einer A340 fliegen, aber auch eine \ac{PU}2, in denen sie auf A340 und Boeing 747 eingeteilt sind. Entsteht nun ein Bedarf an Kabinenpersonal für eine A340 ist es unklar, ob dieser der \ac{PU}1 oder der \ac{PU}2 zugeschrieben wird. \\
 Ein erster Lösungsansatz wäre es, den Bedarf prozentual auf alle möglichen \acp{PU} zu verteilen und diese zu gewichten. Wie genau damit umgegangen wird, muss aber mit dem Kunden ausführlich diskutiert werden, damit man sich auf eine Lösung einig wird.
 
 
-\subsection{Compas Cockpit als Vorbild zur automatisierten Kapazitätsplanung der Kabinenbesatzung}
+\subsection{COMPAS Cockpit als Vorlage - kritische Auseinandersetzung}
 Kurzfristig gesehen ist die Integration in \ac{COC} eine Lösung, mit der man mit wenig Aufwand das gewünschte Ziel, eine automatisierte Kapazitätsplanung der Kabinenbesatzung, erreichen kann.\\
 Meiner Meinung nach ist diese Methode jedoch kaum nachhaltig. \ac{COC} ist technisch gesehen auf einem fast 20 Jahre alten Stand. Gerade in der IT-Branche, die sich sehr schnell weiterentwickelt, ist dies eine sehr lange Zeit. Für die Gegenwart reicht es bis jetzt noch, aber in einigen Jahren können sich die Anforderungen an ein modernes, komplexes Programm und seinen Funktionen so stark verändern, dass das alte \ac{COC} dafür nicht mehr ausreicht. Deshalb wäre es Verschwendung, den einfachen Weg zu gehen, um in einigen Jahren trotzdem ein fast komplett neues und modernes Programm zu entwickeln, wenn festgestellt wird, dass die Grenzen von \ac{CAB} überschreitet werden. \\
 Es sollte lieber jetzt Aufwand in ein neues, eigenständiges und modernes Programm investiert werden; früher oder später reicht die bisherige Lösung nicht mehr aus und doppelte Arbeit bleibt dadurch erspart. Außerdem könnte \ac{CAB} vielleicht auch ein Vorbild für eine Modernisierung von \ac{COC} sein. Es ist im Sinne der Lufthansa, langfristig die beste Lösung in allen Bereichen zu finden, um auch in Zukunft ein einflussreiches und erfolgreiches Unternehmen zu bleiben.
@@ -386,7 +385,7 @@ Der Prototyp dient als Entscheidungshilfe, um die wahrscheinlich wichtigste Anfo
 \newpage
 
 \pagenumbering{Roman}
-\setcounter{page}{4}
+\setcounter{page}{3}
 \section* {Glossar}
 \addcontentsline{toc}{section}{Glossar}
 
@@ -394,17 +393,16 @@ Der Prototyp dient als Entscheidungshilfe, um die wahrscheinlich wichtigste Anfo
 \begin{tabularx}{\textwidth}{l|X}
 \textbf{Begriff} & \textbf{Erläuterung} \\\hline
 Bestandsrechnung & Berechnung des verfügbaren Bestands in Beschäftigungstagen; dieser wird aus dem Bruttobestand und verschiedenen Ab- und Zugängen errechnet\\
-Compas Cabin & Gefordertes Programm; soll in Compas Cockpit integriert werden und die Kapazitäts- und Schulungsplanung der Kabinencrew automatisieren\\
-Compas Cockpit & Programm zur Kapazitäts- und Schulungsplanung der Cockpit-Mitarbeiter; für die Lufthansa von Lufthansa Systems 1999 entwickelt und seitdem ständig erweitert\\
-Crew Database & Zentrale Datenbank der Lufthansa mit Schnittstellen zu vielen unterschiedlichen Systemen; stellt die erforderlichen Daten für Compas zusammen\\
+COMPAS Cabin & Gefordertes Programm; soll in COMPAS Cockpit integriert werden und die Kapazitäts- und Schulungsplanung der Kabinencrew automatisieren\\
+COMPAS Cockpit & Crew Operation Manpower Planning Advanced System; Programm zur Kapazitäts- und Schulungsplanung der Cockpit-Mitarbeiter: für die Lufthansa Passage von Lufthansa Systems 1999 entwickelt und seitdem ständig erweitert\\
+Crew Database & Zentrale Datenbank der Lufthansa mit Schnittstellen zu vielen unterschiedlichen Systemen; stellt die erforderlichen Daten für COMPAS zusammen\\
 Crew Management System & Überbegriff für alle Schnittstellen-Systeme der Lufthansa mit der Crew Database im Mittelpunkt\\
 Deltarechnung & Der Bestand wird ins Verhältnis zum Bedarf gesetzt und daraus das Delta ermittelt\\
 Funktion & auch Function; Rolle und Aufgaben, die Piloten oder die Kabinenbesatzung auf einem Flug übernehmen \\
-Homebase & Flughafen an dem eine Person oder Gruppe stationiert ist \\  
+Homebase & auch Standort; Flughafen an dem eine Person oder Gruppe stationiert ist \\  
 IEEE & Institute of Electrical and Electronics Engineers; Berufsverband von Igenieuren aus Elektro- und Informationstechnik \\
 Kapazitätsplanung & Mithilfe der Deltarechnung sollen dabei die richtige Anzahl an Personen mit den richtigen Qualifikationen zum richtigen Zeitpunkt verfügbar sein\\
 Kleingruppe & Gruppen für die Kap.- und Schulungsplanung der Kabinenebesatzung; definiert durch  Funktion, Homebase, Unterfunktion, Fluggesellschaft und Flugzeugtyp(en)\\
-NetLine/Crew & Von Lufthansa Systems entwickeltes Programm, das alle Phasen des Crewmanagements unterstützt\\
 Planungseinheit & auch Planningunit; Gruppen für die Kap.- und Schulungsplanung des Cockpits; definiert durch Flugzeugtyp, Funktion, Homebase, Fluggesellschaft, Unterfunktion\\
 Unterfunktion & auch Subfunction; optionale Erweiterung der Funktion \\
 
@@ -412,8 +410,22 @@ Unterfunktion & auch Subfunction; optionale Erweiterung der Funktion \\
 
 \newpage
 
-\section* {Anlagenverzeichnis}
+\setcounter{page}{4}
+\section* {Anhang}
 \addcontentsline{toc}{section}{Anhang}
+\appendix
+\addtocontents{toc}{\protect\setcounter{tocdepth}{-1}}
+\section{\mbox{Detaillierte Bestandsrechnung in COC - Screenshot}}
+\begin{flushleft}
+\includegraphics[width = 500px, keepaspectratio]{Bestand.png}
+\end{flushleft}
+
+%\section{Gesprächsprotokoll vom 5. Juli 2017}
+\includepdf[pages=1, pagecommand=\section{Gesprächsprotokoll vom 5. Juli 2017}, scale = 0.95]{Meeting0407.pdf}
+\includepdf[pages=2-,pagecommand={}]{Meeting0407.pdf}
+
+\includepdf[pagecommand={\section{Beispiele für Kleingruppen und Planungseinheiten}}, scale = 0.8, keepaspectratio]{Kleingruppen.pdf}
+\includepdf{Planungseinheiten.pdf}
 \newpage
 
 \end{document}
